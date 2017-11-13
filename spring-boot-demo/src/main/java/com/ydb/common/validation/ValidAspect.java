@@ -22,23 +22,6 @@ public class ValidAspect {
 
     @Around("execution(* com.ydb.controller.*.*(..,@javax.validation.Valid (*), org.springframework.validation.BindingResult,..))")
     public BaseResModel doValid(ProceedingJoinPoint pjp) throws Throwable {
-        BaseResModel repModel = new BaseResModel();
-        repModel.setCode(-99);
-
-        Object[] args = pjp.getArgs();
-        BindingResult result = null;
-        for (Object arg : args){
-            if (arg instanceof BindingResult){
-                result = (BindingResult) arg;
-            }
-        }
-        if (result != null && result.hasErrors()){
-            List<ObjectError> list = result.getAllErrors();
-            for (ObjectError error:list){
-                repModel.setCode(new Integer(error.getDefaultMessage()));
-                return repModel;
-            }
-        }
-        return (BaseResModel)pjp.proceed();
+        return null;
     }
 }

@@ -21,8 +21,8 @@ public class MessageAspect {
 
     @Around("execution(* com.ydb.controller.*.*(..))")
     public BaseResModel addMsg(ProceedingJoinPoint pjp) throws Throwable {
-        BaseResModel resModel = (BaseResModel)pjp.proceed();
-        resModel.setMsg(messageSource.getMessage(resModel.getCode().toString(),null,"不识别的错误码，请联系服务器！",null));
-        return resModel;
+//        BaseResModel resModel = (BaseResModel)pjp.proceed();
+//        resModel.setMsg(messageSource.getMessage(resModel.getCode().toString(),null,"不识别的错误码，请联系服务器！",null));
+        return null;
     }
 }

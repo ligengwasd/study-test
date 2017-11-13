@@ -4,6 +4,7 @@
     <bytecodeTargetLevel>
       <module name="drug-dealer" target="1.5" />
       <module name="spring-boot-demo" target="1.8" />
+      <module name="study-test" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>
