@@ -1,6 +1,9 @@
 server:
   port: 9091
-
+  tomcat:
+    accesslog:
+      enabled: true
+      directory: /tmp
 spring:
   datasource:
     name: test
