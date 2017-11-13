@@ -1,4 +1,4 @@
-package com.ydb.repository;
+package com.ydb.dao.repository;
 
 import com.ydb.entity.mysql.Feed;
 import org.springframework.data.repository.PagingAndSortingRepository;

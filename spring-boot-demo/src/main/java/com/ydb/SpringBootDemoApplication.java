@@ -18,7 +18,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @SpringBootApplication
-@MapperScan(basePackages = "com.ydb.mapper")
+@MapperScan(basePackages = "com.ydb.dao.mapper")
 @EnableSwagger2
 public class SpringBootDemoApplication {
 
