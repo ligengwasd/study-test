@@ -27,3 +27,9 @@ spring:
 mybatis:
   type-aliases-package: com.ydb.entity.mysql
   mapper-locations: classpath:mappers/**/*.xml
+
+
+swagger:
+  host: localhost:${server.port}
+  basepath: /
+  scheme: http

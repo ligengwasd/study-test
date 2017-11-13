@@ -12,7 +12,7 @@ public class AuthInterceptor extends HandlerInterceptorAdapter {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response,
                              Object handler) throws Exception {
-        System.out.println("MyInterceptor executing");
+//        System.out.println("MyInterceptor executing");
         // 是否登录
         // URL鉴权
         // 非法访问后台URL，强行踢下线。
