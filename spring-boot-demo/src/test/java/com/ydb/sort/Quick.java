@@ -1,9 +1,12 @@
-package com.ydb;
+package com.ydb.sort;
+
+import static com.ydb.sort.Utril.print;
+import static com.ydb.sort.Utril.swap;
 
 /**
  * Created by ligeng on 17/11/25.
  */
-public class QuickSort {
+public class Quick {
     public static void main(String[] args) {
         int[] s = {6,1,2,7,9,3,4,5,10,8};
         print(s);
@@ -30,16 +33,5 @@ public class QuickSort {
         adjustArray(s, left, i-1);
         adjustArray(s, i+1, right);
     }
-    static void swap(int s[], int i, int j){
-        int temp;
-        temp = s[i];
-        s[i] = s[j];
-        s[j] = temp;
-    }
-    static void print(int[] s){
-        for (int t:s){
-            System.out.print(t+",");
-        }
-        System.out.println();
-    }
+
 }
