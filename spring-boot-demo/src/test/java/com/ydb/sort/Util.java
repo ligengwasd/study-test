@@ -3,7 +3,7 @@ package com.ydb.sort;
 /**
  * Created by ligeng on 17/11/27.
  */
-public class Utril {
+public class Util {
     static void swap(int s[], int i, int j){
         int temp;
         temp = s[i];

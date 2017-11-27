@@ -1,7 +1,7 @@
 package com.ydb.sort;
 
-import static com.ydb.sort.Utril.print;
-import static com.ydb.sort.Utril.swap;
+import static com.ydb.sort.Util.print;
+import static com.ydb.sort.Util.swap;
 
 /**
  * Created by ligeng on 17/11/25.
