@@ -5,9 +5,9 @@ server:
     accesslog:
       enabled: true
       directory: /tmp
-    max-connections: 500
-    max-threads: 500
-    accept-count: 600
+#    max-connections: 500
+#    max-threads: 500
+#    accept-count: 600
 
 logging:
   level:
