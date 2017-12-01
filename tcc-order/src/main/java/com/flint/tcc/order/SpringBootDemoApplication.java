@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ImportResource;
 import org.springframework.data.domain.Pageable;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
@@ -20,6 +21,7 @@ import java.util.Set;
 @SpringBootApplication
 @MapperScan(basePackages = "com.flint.tcc.order.dao.mapper")
 @EnableSwagger2
+@ImportResource(locations = "classpath:tcc-transaction.xml")
 public class SpringBootDemoApplication {
 
 	public static void main(String[] args) {
