@@ -18,7 +18,7 @@ logging:
 spring:
   datasource:
     name: test
-    url: jdbc:mysql://127.0.0.1:3306/study-test
+    url: jdbc:mysql://127.0.0.1:3306/tcc_ord
     username: root
     password: wasd
     # 使用druid数据源
@@ -39,7 +39,7 @@ spring:
 #    maxOpenPreparedStatements: 20
 
 mybatis:
-  type-aliases-package: com.ydb.entity.mysql
+  type-aliases-package: com.flint.tcc.order.entity.mysql
   mapper-locations: classpath:mappers/**/*.xml
 
 

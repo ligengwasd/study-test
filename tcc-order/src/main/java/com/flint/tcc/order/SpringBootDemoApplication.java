@@ -18,7 +18,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @SpringBootApplication
-@MapperScan(basePackages = "com.ydb.dao.mapper")
+@MapperScan(basePackages = "com.flint.tcc.order.dao.mapper")
 @EnableSwagger2
 public class SpringBootDemoApplication {
 
@@ -52,7 +52,7 @@ public class SpringBootDemoApplication {
 				.ignoredParameterTypes(Pageable.class)
 				.apiInfo(apiInfo)
 				.select()
-				.apis(RequestHandlerSelectors.basePackage("com.ydb.controller"))
+				.apis(RequestHandlerSelectors.basePackage("com.flint.tcc.order.controller"))
 				.paths(PathSelectors.any())
 				.build();
 	}
