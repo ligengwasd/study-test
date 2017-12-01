@@ -1,4 +1,4 @@
-package com.flint.tcc.order;
+package com.flint.tcc.account;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Value;
@@ -19,13 +19,13 @@ import java.util.HashSet;
 import java.util.Set;
 
 @SpringBootApplication
-@MapperScan(basePackages = "com.flint.tcc.order.dao.mapper")
+@MapperScan(basePackages = "com.flint.tcc.account.dao.mapper")
 @EnableSwagger2
 @ImportResource(locations = "classpath:tcc-transaction.xml")
-public class SpringBootDemoApplication {
+public class TccAccountApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringBootDemoApplication.class, args);
+		SpringApplication.run(TccAccountApplication.class, args);
 	}
 
 	@Value("${swagger.host}")

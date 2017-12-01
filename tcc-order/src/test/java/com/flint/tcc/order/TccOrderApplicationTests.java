@@ -1,6 +1,6 @@
-package com.flint.tcc.account;
+package com.flint.tcc.order;
 
-import com.flint.tcc.account.dao.repository.SysDataRepository;
+import com.flint.tcc.order.dao.repository.SysDataRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +11,7 @@ import java.util.Date;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class SpringBootDemoApplicationTests {
+public class TccOrderApplicationTests {
 	@Autowired
 	private SysDataRepository sysDataRepository;
 
