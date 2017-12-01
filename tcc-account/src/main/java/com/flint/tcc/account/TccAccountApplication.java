@@ -54,7 +54,7 @@ public class TccAccountApplication {
 				.ignoredParameterTypes(Pageable.class)
 				.apiInfo(apiInfo)
 				.select()
-				.apis(RequestHandlerSelectors.basePackage("com.flint.tcc.order.controller"))
+				.apis(RequestHandlerSelectors.basePackage("com.flint.tcc.account.controller"))
 				.paths(PathSelectors.any())
 				.build();
 	}
