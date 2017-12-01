@@ -7,12 +7,14 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="spring-boot-demo" />
+        <module name="tcc-account" />
         <module name="tcc-order" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="spring-boot-demo" target="1.8" />
       <module name="study-test" target="1.5" />
+      <module name="tcc-account" target="1.8" />
       <module name="tcc-order" target="1.8" />
     </bytecodeTargetLevel>
   </component>
