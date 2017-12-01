@@ -28,7 +28,7 @@ public class OrderController {
     private AccountFeignClient accountFeignClient;
 
     @GetMapping("/order")
-    @Compensable(confirmMethod = "confirmOrder", cancelMethod = "cancelOrder", transactionContextEditor = MethodTransactionContextEditor.class)
+    @Compensable(confirmMethod = "confirmOrder", cancelMethod = "cancelOrder", transactionContextEditor = Compensable.DefaultTransactionContextEditor.class)
     @Transactional
     public String order(@RequestParam int flag){
         System.currentTimeMillis();

@@ -24,7 +24,7 @@ import java.util.Random;
 public class AccountController {
 
     @GetMapping("/pay")
-    @Compensable(confirmMethod = "confirmRecord", cancelMethod = "cancelRecord", transactionContextEditor = MethodTransactionContextEditor.class)
+    @Compensable(confirmMethod = "confirmRecord", cancelMethod = "cancelRecord", transactionContextEditor = Compensable.DefaultTransactionContextEditor.class)
     @Transactional
     public String record(){
         return "success";
@@ -34,7 +34,6 @@ public class AccountController {
     }
     public void cancelRecord(){
         System.out.println("cancelRecord");
-
     }
 
 }
