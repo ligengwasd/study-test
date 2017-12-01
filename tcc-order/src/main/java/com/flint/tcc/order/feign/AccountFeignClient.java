@@ -1,5 +1,6 @@
 package com.flint.tcc.order.feign;
 
+import com.flint.tcc.order.model.response.BaseResModel;
 import org.mengyun.tcctransaction.api.Compensable;
 import org.mengyun.tcctransaction.api.Propagation;
 import org.mengyun.tcctransaction.context.MethodTransactionContextEditor;
@@ -13,6 +14,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 public interface AccountFeignClient {
 
     @GetMapping("/pay")
-    @Compensable(propagation = Propagation.SUPPORTS, confirmMethod = "pay", cancelMethod = "pay", transactionContextEditor = MethodTransactionContextEditor.class)
-    public String pay();
+    @Compensable(propagation = Propagation.SUPPORTS, confirmMethod = "pay", cancelMethod = "pay", transactionContextEditor = Compensable.DefaultTransactionContextEditor.class)
+    BaseResModel pay();
 }

@@ -7,13 +7,13 @@ import lombok.Data;
  */
 @Data
 public class BaseResModel {
-    Integer code;
+    int code=100;
     String msg;
     Object data;
     public BaseResModel(){
-        this.code = 1001;
     }
     public BaseResModel(Integer code){
         this.code = code;
     }
 }
+
