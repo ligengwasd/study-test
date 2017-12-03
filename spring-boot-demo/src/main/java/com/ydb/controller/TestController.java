@@ -2,11 +2,13 @@ package com.ydb.controller;
 
 import com.ydb.dao.mapper.SysDataMapper;
 import com.ydb.dao.repository.SysDataRepository;
+import com.ydb.entity.mysql.SysData;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Date;
@@ -32,6 +34,12 @@ public class TestController {
         int i = sysDataRepository.executeSeckill(1000L, ss, new Date());
         System.out.println(i);
         return "test1";
+    }
+    @ApiOperation("testMybatisCache")
+    @GetMapping("/testMybatisCache")
+    public SysData testMybatisCache(@RequestParam long id){
+        SysData sysData = sysDataMapper.findById(id);
+        return sysData;
     }
 
     public static void main(String[] args) {
