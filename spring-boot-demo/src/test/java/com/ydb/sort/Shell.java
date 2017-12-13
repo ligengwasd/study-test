@@ -14,8 +14,8 @@ public class Shell {
         int gap,i,j;
         for (gap=s.length/2; gap>0; gap/=2){
             for (i=gap; i<s.length; i++){
-                for (j=i; j>0 && s[j-gap]>s[j]; j-=gap){
-                    Util.swap(s, j-1,j);
+                for (j=i-gap; j>=0 && s[j]>s[j+gap]; j-=gap){
+                    Util.swap(s, j+gap,j);
                     Util.print(s);
                 }
             }

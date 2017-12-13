@@ -17,7 +17,40 @@ public class Merge {
         int mid = (last+first)/2;
         recMerge(workSpace, first, mid);
         recMerge(workSpace, mid+1, last);
-        merge2(workSpace, first, mid+1, last);
+//        merge2(workSpace, first, mid+1, last);
+        merge3(first, mid+1, last);
+    }
+
+
+    /**
+     * 自己写的
+     * @param left_
+     * @param middle_
+     * @param right_
+     */
+    private static void merge3(int left_,int middle_,int right_){
+        int left=left_, leftBound=middle_-1;
+        int right=middle_,rightBound=right_;
+        int k=0;
+        int workSpace[] = new int[right_-left+1];
+        while (left<=leftBound && right<=rightBound){
+            if (theArray[left] < theArray[right]){
+                workSpace[k++] = theArray[left++];
+            } else {
+                workSpace[k++] = theArray[right++];
+            }
+        }
+        while (left<=leftBound){
+            workSpace[k++] = theArray[left++];
+        }
+        while (right<=rightBound){
+            workSpace[k++] = theArray[right++];
+        }
+        for (k=0; k<workSpace.length; k++){
+            theArray[left_++] = workSpace[k];
+        }
+//        3,4,5,6,1,2,7,9,10,8,
+        Util.print(theArray);
     }
 
     private static void merge2(int workSpace[],int lowPtr, int highPtr, int upperBound){
