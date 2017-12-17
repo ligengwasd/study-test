@@ -1,7 +1,9 @@
 package com.ydb.controller;
 
 import com.ydb.dao.mapper.SysDataMapper;
+import com.ydb.dao.repository.HeartBeatRepository;
 import com.ydb.dao.repository.SysDataRepository;
+import com.ydb.entity.mongo.HeartBeat;
 import com.ydb.entity.mysql.SysData;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -25,6 +27,8 @@ public class TestController {
     private SysDataMapper sysDataMapper;
     @Autowired
     private SysDataRepository sysDataRepository;
+    @Autowired
+    private HeartBeatRepository heartBeatRepository;
 
     @ApiOperation("测试1")
     @GetMapping("/test1")
@@ -34,6 +38,15 @@ public class TestController {
         int i = sysDataRepository.executeSeckill(1000L, ss, new Date());
         System.out.println(i);
         return "test1";
+    }
+    @ApiOperation("测试mongo插入性能")
+    @GetMapping("/testMongoInsert")
+    public HeartBeat testMongoInsert(){
+        HeartBeat hb = new HeartBeat();
+        hb.setUId(new Random().nextInt());
+        hb.setUId(new Random().nextLong());
+        heartBeatRepository.save(hb);
+        return hb;
     }
     @ApiOperation("testMybatisCache")
     @GetMapping("/testMybatisCache")
