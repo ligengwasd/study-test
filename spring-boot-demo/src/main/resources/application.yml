@@ -31,10 +31,10 @@ spring:
     port: 6379
   data:
     mongodb:
-      host: 192.168.199.194
+      host: 127.0.0.1
       port: 27017
       database: ydb_content
-      credentials: adcoYIIYRm2KFep1putJ6A==
+      credentials: fnhAWIMUK+LdvsD80XV+nQ==
       username: user_ydb_content
       password: password_ydb_content
 #    password: 780810
