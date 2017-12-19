@@ -31,6 +31,12 @@ public class TestController {
     private HeartBeatRepository heartBeatRepository;
 
     @ApiOperation("测试1")
+    @GetMapping("/test_empty")
+    public String test_empty(){
+        return "test1";
+    }
+
+    @ApiOperation("测试1")
     @GetMapping("/test1")
     public String test1(){
 //        sysDataMapper.testSecKill();
