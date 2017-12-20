@@ -22,3 +22,7 @@ zuul:
       path: /tcc-account/**
       serviceId: tcc-account
       strip-prefix: true
+
+tcc-account:
+  ribbon:
+    NFLoadBalancerRuleClassName: com.flint.tcc.zuul.IpUserHashRule
