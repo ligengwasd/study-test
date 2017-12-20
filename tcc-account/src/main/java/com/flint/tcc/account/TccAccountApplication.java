@@ -4,6 +4,7 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ImportResource;
 import org.springframework.data.domain.Pageable;
@@ -20,6 +21,7 @@ import java.util.Set;
 
 @SpringBootApplication
 @MapperScan(basePackages = "com.flint.tcc.account.dao.mapper")
+@EnableDiscoveryClient
 @EnableSwagger2
 @ImportResource(locations = "classpath:tcc-transaction.xml")
 public class TccAccountApplication {

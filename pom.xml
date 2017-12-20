@@ -12,6 +12,7 @@
         <module>spring-boot-demo</module>
         <module>tcc-order</module>
         <module>tcc-account</module>
+        <module>tcc-eureka</module>
 	</modules>
 
 </project>

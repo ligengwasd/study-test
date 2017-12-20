@@ -4,6 +4,7 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.cloud.netflix.feign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ImportResource;
@@ -24,6 +25,7 @@ import java.util.Set;
 @EnableSwagger2
 @ImportResource(locations = "classpath:tcc-transaction.xml")
 @EnableFeignClients
+@EnableEurekaClient
 public class TccOrderApplication {
 
 	public static void main(String[] args) {

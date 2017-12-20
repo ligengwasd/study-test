@@ -16,6 +16,8 @@ logging:
     root: info
   file: /tmp/spring-boot-demo.log
 spring:
+  application:
+    name: tcc-order
   datasource:
     name: test
     url: jdbc:mysql://127.0.0.1:3306/tcc_ord
@@ -47,3 +49,11 @@ swagger:
   host: localhost:${server.port}
   basepath: /
   scheme: http
+
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+      serviceUrl:
+        defaultZone: http://localhost:9093/eureka/
