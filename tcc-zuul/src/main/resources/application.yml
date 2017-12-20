@@ -14,3 +14,11 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:9093/eureka/,http://localhost:9094/eureka/
+zuul:
+  add-host-header: true
+  prefix: /api
+  routes:
+    tcc-account:
+      path: /tcc-account/**
+      serviceId: tcc-account
+      strip-prefix: true
