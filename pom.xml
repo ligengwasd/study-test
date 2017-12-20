@@ -13,6 +13,7 @@
         <module>tcc-order</module>
         <module>tcc-account</module>
         <module>tcc-eureka</module>
+        <module>tcc-zuul</module>
 	</modules>
 
 </project>
