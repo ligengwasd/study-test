@@ -14,6 +14,7 @@
         <module>tcc-account</module>
         <module>tcc-eureka</module>
         <module>tcc-zuul</module>
+        <module>tcc-config</module>
 	</modules>
 
 </project>
