@@ -1,2 +1,17 @@
 server:
   port: 9096
+
+spring:
+  application:
+    name: tcc-config
+  cloud:
+    config:
+      server:
+        git:
+          uri: http://localhost/root/config-spring-cloud.git
+          username: root
+          password: 12345678
+          search-paths: /
+
+logging:
+  level: info
