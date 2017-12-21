@@ -9,6 +9,8 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.mengyun.tcctransaction.api.Compensable;
 import org.mengyun.tcctransaction.context.MethodTransactionContextEditor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,6 +28,7 @@ import java.util.Random;
 @RequestMapping
 @Api(description = "订单")
 public class OrderController {
+    private static final Logger logger = LoggerFactory.getLogger(OrderController.class);
     @Autowired
     private OrderService orderService;
     @Autowired
@@ -44,6 +47,7 @@ public class OrderController {
 
     @GetMapping("/test_log")
     public BaseResModel testLog(){
+        logger.info("测试日志跟踪 tcc-order");
         return accountFeignClient.testLog();
     }
 }

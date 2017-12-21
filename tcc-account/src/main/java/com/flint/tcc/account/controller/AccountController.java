@@ -3,6 +3,8 @@ package com.flint.tcc.account.controller;
 import com.flint.tcc.account.model.response.BaseResModel;
 import com.flint.tcc.account.service.AccountService;
 import io.swagger.annotations.Api;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,6 +20,8 @@ import java.util.Random;
 @RequestMapping
 @Api(description = "账户资金")
 public class AccountController {
+    private static final Logger logger = LoggerFactory.getLogger(AccountController.class);
+
     @Autowired
     private AccountService accountService;
 
@@ -32,6 +36,7 @@ public class AccountController {
 
     @GetMapping("/test_log")
     public BaseResModel testLog(){
+        logger.info("测试日志跟踪 tcc-account");
         return new BaseResModel();
     }
 
