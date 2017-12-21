@@ -30,4 +30,9 @@ public class AccountController {
         }
     }
 
+    @GetMapping("/test_log")
+    public BaseResModel testLog(){
+        return new BaseResModel();
+    }
+
 }

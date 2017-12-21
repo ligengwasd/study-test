@@ -28,6 +28,8 @@ import java.util.Random;
 public class OrderController {
     @Autowired
     private OrderService orderService;
+    @Autowired
+    private AccountFeignClient accountFeignClient;
 
     @GetMapping("/order")
     public BaseResModel order(@RequestParam int flag){
@@ -38,5 +40,10 @@ public class OrderController {
             return new BaseResModel(-99);
         }
         return orderRes;
+    }
+
+    @GetMapping("/test_log")
+    public BaseResModel testLog(){
+        return accountFeignClient.testLog();
     }
 }
