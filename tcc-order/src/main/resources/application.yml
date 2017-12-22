@@ -16,8 +16,6 @@ logging:
     root: info
   file: /tmp/spring-boot-demo.log
 spring:
-  application:
-    name: tcc-order
   datasource:
     name: test
     url: jdbc:mysql://127.0.0.1:3306/tcc_ord
