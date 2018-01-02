@@ -49,10 +49,17 @@ public class TestController {
     @GetMapping("/testMongoInsert")
     public HeartBeat testMongoInsert(){
         HeartBeat hb = new HeartBeat();
-        hb.setUId(new Random().nextInt());
-        hb.setUId(new Random().nextLong());
+        hb.setUId(1);
+        hb.setUId(1L);
         heartBeatRepository.save(hb);
         return hb;
+    }
+    @GetMapping("/testMysqlInsert")
+    public String testMysqlInsert(){
+        SysData sysData = new SysData();
+        sysData.setName("ssss");
+        sysDataRepository.save(sysData);
+        return "111";
     }
     @ApiOperation("testMybatisCache")
     @GetMapping("/testMybatisCache")
