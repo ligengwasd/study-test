@@ -25,25 +25,21 @@ public class SpringBootDemoApplicationTests {
 	public void contextLoads() {
 //		int i = sysDataRepository.executeSeckill(1000l,15121128676l, new Date());
 //		System.out.println(i);
-		for (int i=1; i<=20; i++){
-			test2();
-		}
+		test2();
 	}
 	@Test
 	public void test2() {
-		new Thread(()->{
-			List<SysData> data = new ArrayList<>();
-			for (int i=1; i<=100000; i++) {
-				data.clear();
-				for (int j=1; j<=10000; j++) {
-					SysData temp =new SysData();
-					temp.setLevel(RandomUtils.nextInt(3000000));// user id
-					temp.setOrderNo(RandomUtils.nextInt(800000));// content id
-					data.add(temp);
-				}
-				sysDataRepository.save(data);
+		List<SysData> data = new ArrayList<>();
+		for (int i=1; i<=100000; i++) {
+			data.clear();
+			for (int j=1; j<=10000; j++) {
+				SysData temp =new SysData();
+				temp.setLevel(RandomUtils.nextInt(30000000));// user id
+				temp.setOrderNo(RandomUtils.nextInt(1000000));// content id
+				data.add(temp);
 			}
-		}).start();
+			sysDataRepository.save(data);
+		}
 	}
 
 
