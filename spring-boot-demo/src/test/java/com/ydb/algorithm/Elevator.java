@@ -5,7 +5,7 @@ import org.apache.commons.lang.math.RandomUtils;
 /**
  * Created by ligeng on 18/1/7.
  */
-public class elevator {
+public class Elevator {
     private static int n = 9;//这个表示电梯所在的最高楼层
     private static int nPerson[] = new int[]{1,5,10,6,7,9,8,2,3,4};//这个数组表示要去每一层的乘客数
     public static void main(String[] args) {
