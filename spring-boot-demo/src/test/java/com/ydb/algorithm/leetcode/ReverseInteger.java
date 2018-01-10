@@ -25,7 +25,7 @@ import java.util.List;
  */
 public class ReverseInteger {
     public static void main(String[] args) {
-        System.out.println(reverse(123));
+        System.out.println(isPalindrome(-2147447412));
     }
 
     public static int reverse(int x) {
@@ -47,5 +47,14 @@ public class ReverseInteger {
         }
         if (sum > Integer.MAX_VALUE) return 0;
         return x > 0 ? sum.intValue() : -sum.intValue();
+    }
+
+    // 判断一个整数是否是回文。
+    public static boolean isPalindrome(int x) {
+        if (x<0) {
+            return false;
+        }
+        int res = reverse(x);
+        return res == x;
     }
 }
