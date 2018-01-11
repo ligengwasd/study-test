@@ -2,6 +2,7 @@ package com.ydb.algorithm.leetcode;
 
 /**
  * Created by ligeng on 18/1/11.
+ * https://leetcode.com/problems/remove-element/description/
  */
 public class RemoveElement {
     public static void main(String[] args) {
