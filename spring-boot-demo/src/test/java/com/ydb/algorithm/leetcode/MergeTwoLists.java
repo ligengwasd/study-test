@@ -23,7 +23,23 @@ public class MergeTwoLists {
         ListNode res = mergeTwoLists(l1_1,l2_1);
         System.out.println(res);
     }
-
+    // 别人的解法
+    public static ListNode mergeTwoLists2(ListNode l1, ListNode l2) {
+        ListNode preHead = new ListNode(-1);
+        ListNode pre = preHead;
+        while (l1!=null && l2!=null){
+            if (l1.val <= l2.val) {
+                pre.next = l1;
+                l1 = l1.next;
+            } else {
+                pre.next = l2;
+                l2 = l2.next;
+            }
+            pre = pre.next;
+        }
+        pre.next = (l1==null) ? l2 : l1;
+        return preHead.next;
+    }
     public static ListNode mergeTwoLists(ListNode l1, ListNode l2) {
         if (l1 == null && l2 == null) return null;
         ListNode current1=l1,current2=l2;
