@@ -15,6 +15,7 @@
         <module>tcc-eureka</module>
         <module>tcc-zuul</module>
         <module>tcc-config</module>
+        <module>tcc-turbine</module>
         <module>spring-boot-elasticsearch</module>
 	</modules>
 
