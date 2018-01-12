@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboard;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ImportResource;
 import org.springframework.data.domain.Pageable;
@@ -24,6 +25,7 @@ import java.util.Set;
 @EnableDiscoveryClient
 @EnableSwagger2
 @ImportResource(locations = "classpath:tcc-transaction.xml")
+@EnableHystrixDashboard
 public class TccAccountApplication {
 
 	public static void main(String[] args) {
