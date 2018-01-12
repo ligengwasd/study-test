@@ -1,5 +1,6 @@
 package com.flint.tcc.account.controller;
 
+import com.flint.tcc.account.feign.OrderFeignClient;
 import com.flint.tcc.account.model.response.BaseResModel;
 import com.flint.tcc.account.service.AccountService;
 import io.swagger.annotations.Api;
@@ -24,6 +25,8 @@ public class AccountController {
 
     @Autowired
     private AccountService accountService;
+    @Autowired
+    private OrderFeignClient orderFeignClient;
 
     @GetMapping("/pay")
     public BaseResModel record(){
@@ -37,6 +40,12 @@ public class AccountController {
     @GetMapping("/test_log")
     public BaseResModel testLog(){
         logger.info("测试日志跟踪 tcc-account");
+        return new BaseResModel();
+    }
+
+    @GetMapping("/test_turbine")
+    public BaseResModel test_turbine(){
+        orderFeignClient.order();
         return new BaseResModel();
     }
 
