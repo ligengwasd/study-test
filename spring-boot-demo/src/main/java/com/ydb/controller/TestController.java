@@ -7,13 +7,16 @@ import com.ydb.entity.mongo.HeartBeat;
 import com.ydb.entity.mysql.SysData;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.apache.commons.lang.math.RandomUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -66,6 +69,27 @@ public class TestController {
     public SysData testMybatisCache(@RequestParam long id){
         SysData sysData = sysDataMapper.findById(id);
         return sysData;
+    }
+    @ApiOperation("generateBigData")
+    @GetMapping("/generateBigData")
+    public String generateBigData(){
+        System.out.println(1);
+        for (int k=0; k<3; k++){
+            new Thread(()->{
+                List<SysData> data = new ArrayList<>();
+                for (int i=1; i<=10000; i++) {
+                    data.clear();
+                    for (int j=1; j<=10000; j++) {
+                        SysData temp =new SysData();
+                        temp.setLevel(RandomUtils.nextInt(30000000));// user id
+                        temp.setOrderNo(RandomUtils.nextInt(1000000));// content id
+                        data.add(temp);
+                    }
+                    sysDataRepository.save(data);
+                }
+            }).start();
+        }
+        return "111";
     }
 
     public static void main(String[] args) {
