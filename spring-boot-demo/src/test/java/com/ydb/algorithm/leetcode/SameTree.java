@@ -4,6 +4,7 @@ import java.util.Stack;
 
 /**
  * Created by ligeng on 18/1/14.
+ * 两棵树是否完全一模一样
  */
 public class SameTree {
     public class TreeNode {
