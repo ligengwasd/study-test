@@ -8,10 +8,10 @@ spring:
     config:
       server:
         git:
-          uri: http://localhost/root/config-spring-cloud.git
-          username: root
-          password: 12345678
-          search-paths: /
+          uri: https://github.com/ligengwasd/study-test.git
+          username: 914076530@qq.com
+          password: 7391507abcWASD
+          search-paths: /config
 
 logging:
   level: info
