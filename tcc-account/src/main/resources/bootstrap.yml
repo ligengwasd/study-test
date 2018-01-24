@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: tcc-account
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: tcc-config
+      profile: dev
+server:
+  port: 9092
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:9093/eureka/,http://localhost:9094/eureka/
