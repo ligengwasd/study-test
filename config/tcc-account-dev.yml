@@ -1,0 +1,64 @@
+
+server:
+  port: 9092
+  tomcat:
+    accesslog:
+      enabled: true
+      directory: /tmp
+#    max-connections: 500
+#    max-threads: 500
+#    accept-count: 600
+
+logging:
+  level:
+    org:
+      springframework: INFO
+    root: info
+  file: /tmp/spring-boot-demo.log
+spring:
+  application:
+    name: tcc-account
+  datasource:
+    name: test
+    url: jdbc:mysql://127.0.0.1:3306/tcc_ord
+    username: root
+    password: wasd
+    # 使用druid数据源
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+#    filters: stat
+#    maxActive: 20
+#    initialSize: 1
+#    maxWait: 60000
+#    minIdle: 1
+#    timeBetweenEvictionRunsMillis: 60000
+#    minEvictableIdleTimeMillis: 300000
+#    validationQuery: select 'x'
+#    testWhileIdle: true
+#    testOnBorrow: false
+#    testOnReturn: false
+#    poolPreparedStatements: true
+#    maxOpenPreparedStatements: 20
+
+mybatis:
+  type-aliases-package: com.flint.tcc.order.entity.mysql
+  mapper-locations: classpath:mappers/**/*.xml
+
+
+swagger:
+  host: localhost:${server.port}
+  basepath: /
+  scheme: http
+
+
+eureka:
+  instance:
+    lease-expiration-duration-in-seconds: 30 # 心跳时间，即服务续约间隔时间（缺省为30s）
+    lease-renewal-interval-in-seconds: 10 # 续约 发呆时间，即服务续约到期时间（缺省为90s）
+    prefer-ip-address: true
+    instanceId: ${spring.application.name}:${spring.cloud.client.ipAddress}:${server.port}
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:9093/eureka/,http://localhost:9094/eureka/
+      register-with-eureka: true
+      fetch-registry: true
