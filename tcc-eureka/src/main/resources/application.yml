@@ -1,3 +1,7 @@
 spring:
   application:
     name: tcc-eureka-server
+
+# 启动命令
+# nohup java -jar tcc-eureka/target/tcc-eureka-0.0.1-SNAPSHOT.jar  --spring.profiles.active=node1 >/tmp/tcc-eureka-node1.log 2>&1 &
+# nohup java -jar tcc-eureka/target/tcc-eureka-0.0.1-SNAPSHOT.jar  --spring.profiles.active=node2 >/tmp/tcc-eureka-node2.log 2>&1 &
