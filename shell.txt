@@ -1,0 +1,1 @@
+nohup java -jar tcc-zuul/target/tcc-zuul-0.0.1-SNAPSHOT.jar >/tmp/tcc-zuul.log 2>&1 &
