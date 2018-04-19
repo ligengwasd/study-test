@@ -7,4 +7,8 @@
     <select id="findById" resultType="sysData">
       SELECT * FROM sys_data WHERE id = #{id}
     </select>
+    
+    <insert id="save">
+        INSERT sys_data(name, type) VALUE (#{name}, #{type})
+    </insert>
 </mapper>

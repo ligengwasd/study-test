@@ -15,6 +15,8 @@ public interface SysDataMapper {
     @Cacheable("sysDataCache")
     SysData findById(@Param("id") long id);
 
+    int save(SysData entity);
+
 //    @Update("UPDATE sys_data SET `level` = `level` -1 WHERE id = 1 and level>0")
 //    int testSecKill();
 //

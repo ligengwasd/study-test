@@ -1,5 +1,6 @@
 package com.ydb.entity.mysql;
 
+import com.ydb.enums.SysDataEnum;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -33,5 +34,5 @@ public class SysData extends DrugBaseEntity {
     private Integer orderNo;
 
     @ApiModelProperty("类别 0;患教标签（患教文章），1:用户分组标签，2:咨询医生选择科室的标签，3：药品类型")
-    private Integer type;
+    private SysDataEnum type;
 }

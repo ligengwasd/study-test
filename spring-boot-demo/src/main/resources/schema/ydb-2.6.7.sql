@@ -3,6 +3,12 @@ drop table if exists Issues;
 /*==============================================================*/
 /* Table: Issues                                                */
 /*==============================================================*/
+CREATE TABLE sys_data(
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+  `type` INT,
+  PRIMARY KEY (id)
+)
 create table Issues
 (
    UID                  CHAR(40) not null,
