@@ -1,5 +1,6 @@
 package com.ydb.entity.mysql;
 
+import com.ydb.enums.LevelEnum;
 import com.ydb.enums.SysDataEnum;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -28,7 +29,7 @@ public class SysData extends DrugBaseEntity {
     private Integer parentId;
 
     @ApiModelProperty("层级")
-    private Integer level;
+    private LevelEnum level;
 
     @ApiModelProperty("排序")
     private Integer orderNo;

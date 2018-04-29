@@ -27,6 +27,7 @@
 
     <typeHandlers>
         <typeHandler handler="com.ydb.enums.EnumTypeHandler" javaType="com.ydb.enums.SysDataEnum" jdbcType="INTEGER" />
+        <typeHandler handler="com.ydb.enums.EnumTypeHandler" javaType="com.ydb.enums.LevelEnum" jdbcType="INTEGER" />
     </typeHandlers>
 
 </configuration>

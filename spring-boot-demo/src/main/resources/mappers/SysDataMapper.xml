@@ -9,6 +9,6 @@
     </select>
     
     <insert id="save">
-        INSERT sys_data(name, type) VALUE (#{name}, #{type})
+        INSERT sys_data(name, type, level) VALUE (#{name}, #{type},#{level})
     </insert>
 </mapper>

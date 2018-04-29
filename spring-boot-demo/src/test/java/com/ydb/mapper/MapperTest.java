@@ -2,6 +2,7 @@ package com.ydb.mapper;
 
 import com.ydb.dao.mapper.SysDataMapper;
 import com.ydb.entity.mysql.SysData;
+import com.ydb.enums.LevelEnum;
 import com.ydb.enums.SysDataEnum;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -20,6 +21,13 @@ public class MapperTest {
         SysData entity = new SysData();
         entity.setName("ligeng");
         entity.setType(SysDataEnum.type1);
+        entity.setLevel(LevelEnum.type1);
         System.out.println(sysDataMapper.save(entity));
+    }
+
+    @Test
+    public void find(){
+        SysData entity = sysDataMapper.findById(3L);
+        System.out.println(entity);
     }
 }
