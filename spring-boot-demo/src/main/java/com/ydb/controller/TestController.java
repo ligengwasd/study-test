@@ -81,7 +81,7 @@ public class TestController {
                     data.clear();
                     for (int j=1; j<=10000; j++) {
                         SysData temp =new SysData();
-                        temp.setLevel(RandomUtils.nextInt(30000000));// user id
+//                        temp.setLevel(RandomUtils.nextInt(30000000));// user id
                         temp.setOrderNo(RandomUtils.nextInt(1000000));// content id
                         data.add(temp);
                     }
