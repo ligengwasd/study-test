@@ -1,6 +1,6 @@
 
 server:
-  port: 9091
+  port: 9092
   tomcat:
     accesslog:
       enabled: true
@@ -11,10 +11,13 @@ server:
 
 logging:
   level:
+    org:
+      springframework: INFO
     root: info
-    com.flint.tcc.order.feign.AccountFeignClient: debug
-#  file: /tmp/spring-boot-demo.log
+  file: /tmp/spring-boot-demo.log
 spring:
+  application:
+    name: tcc-account
   datasource:
     name: test
     url: jdbc:mysql://127.0.0.1:3306/tcc_ord
@@ -59,21 +62,3 @@ eureka:
       defaultZone: http://localhost:9093/eureka/,http://localhost:9094/eureka/
       register-with-eureka: true
       fetch-registry: true
-
-
-feign:
-  hystrix:
-    enabled: true
-hystrix:
-  command:
-      default:
-        execution:
-          isolation:
-            thread:
-              timeoutInMilliseconds: 10000
-  threadpool:
-      default:
-         coreSize: 15
-ribbon:
-  ConnectTimeout: 5000
-  ReadTimeout: 5000

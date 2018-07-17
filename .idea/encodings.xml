@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/spring-boot-demo" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-boot-elasticsearch" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tcc-account" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tcc-config" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tcc-eureka" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tcc-order" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tcc-turbine" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tcc-zuul" charset="UTF-8" />
+  </component>
+</project>

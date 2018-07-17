@@ -1,12 +1,12 @@
 spring:
   application:
     name: tcc-account
-  cloud:
-    config:
-      discovery:
-        enabled: true
-        service-id: tcc-config
-      profile: dev
+#  cloud:
+#    config:
+#      discovery:
+#        enabled: true
+#        service-id: tcc-config
+#      profile: dev
 server:
   port: 9092
 eureka:

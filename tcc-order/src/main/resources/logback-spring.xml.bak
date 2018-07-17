@@ -64,8 +64,11 @@
             </providers>
         </encoder>
     </appender>
+
+    <logger name="com.flint.tcc.order.feign.AccountFeignClient" level="DEBUG"/>
+
     ​
-    <root level="INFO">
+    <root level="DEBUG">
         <appender-ref ref="console"/>
         <appender-ref ref="logstash"/>
         <!--<appender-ref ref="flatfile"/>-->

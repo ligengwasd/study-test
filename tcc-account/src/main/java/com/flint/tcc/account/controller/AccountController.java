@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Date;
 import java.util.Random;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by ligeng on 17/1/15.
@@ -38,7 +39,8 @@ public class AccountController {
     }
 
     @GetMapping("/test_log")
-    public BaseResModel testLog(){
+    public BaseResModel testLog() throws InterruptedException {
+        TimeUnit.SECONDS.sleep(6);
         logger.info("测试日志跟踪 tcc-account");
         return new BaseResModel();
     }

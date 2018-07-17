@@ -16,6 +16,8 @@ logging:
     root: info
   file: /tmp/spring-boot-demo.log
 spring:
+  application:
+    name: spring-boot-demo
   datasource:
     name: test
     url: jdbc:mysql://127.0.0.1:3306/study-test
@@ -37,6 +39,7 @@ spring:
       credentials: fnhAWIMUK+LdvsD80XV+nQ==
       username: user_ydb_content
       password: password_ydb_content
+
 #    password: 780810
 
 #    filters: stat
