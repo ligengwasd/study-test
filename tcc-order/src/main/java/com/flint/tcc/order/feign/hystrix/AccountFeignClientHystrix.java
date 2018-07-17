@@ -15,7 +15,8 @@ import org.springframework.stereotype.Component;
 public class AccountFeignClientHystrix implements FallbackFactory<AccountFeignClient> {
     @Override
     public AccountFeignClient create(Throwable throwable) {
-        log.error("AccountFeignClientHystrix fallback, cause{}", ExceptionUtils.getMessage(throwable));
+//        log.error();
+        log.error("AccountFeignClientHystrix fallback", throwable);
         return new AccountFeignClient() {
             @Override
             public BaseResModel pay() {
@@ -24,7 +25,9 @@ public class AccountFeignClientHystrix implements FallbackFactory<AccountFeignCl
 
             @Override
             public BaseResModel testLog() {
-                return null;
+                BaseResModel res = new BaseResModel();
+                res.setCode(106);
+                return res;
             }
         };
     }

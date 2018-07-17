@@ -75,5 +75,5 @@ hystrix:
       default:
          coreSize: 15
 ribbon:
-  ConnectTimeout: 5000
-  ReadTimeout: 5000
+  ConnectTimeout: 1000
+  ReadTimeout: 1000

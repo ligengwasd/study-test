@@ -13,11 +13,11 @@ import java.util.concurrent.TimeUnit;
  */
 @Configuration
 public class FeignConfig {
-//    @Bean
-//    public Retryer retryer(){
-////        return new Retryer.Default(100L, TimeUnit.SECONDS.toMillis(1L), 1);
-//        return new Retryer.Default();
-//    }
+    @Bean
+    public Retryer retryer(){
+//        return new Retryer.Default(100L, TimeUnit.SECONDS.toMillis(1L), 1);
+        return new Retryer.Default();
+    }
 
     @Bean
     public Logger.Level level(){
