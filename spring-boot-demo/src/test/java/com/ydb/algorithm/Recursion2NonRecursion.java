@@ -8,24 +8,21 @@ package com.ydb.algorithm;
  */
 public class Recursion2NonRecursion {
     public static void main(String[] args) {
-        long time1 = System.currentTimeMillis();
-        System.out.println(f2(10));
-        long time2 = System.currentTimeMillis();
-        System.out.println(f3(10, 1,1));
-        long time3 = System.currentTimeMillis();
-
-//        System.out.println(time2-time1);
-//        System.out.println(time3-time2);
+        f2(10);
+        System.out.println();
+        f3(10, 1,1);
+        System.out.println();
+        f1(10);
     }
 
     //斐波那契数列
     //递归
-    private static int f(int n) {
+    private static int f1(int n) {
         int res;
         if (n==1 || n==0) {
             res = 1;
         } else {
-            res = f(n-1)+f(n-2);
+            res = f1(n-1)+ f1(n-2);
         }
         System.out.print(res+" ");
         return res;
@@ -33,6 +30,9 @@ public class Recursion2NonRecursion {
 
     // 递归转尾递归
     private static int f3(int n, int s1, int s2) {
+        if (s1 == 1 && s2 == 1) {
+            System.out.print(s1+" ");
+        }
         System.out.print(s2+" ");
         int res;
         if (n<2) {
@@ -52,9 +52,15 @@ public class Recursion2NonRecursion {
             int s=0;
             int s1=1, s2=1;
             for (int i=2; i<=n; i++) {
+                System.out.print(s1+" ");
                 s=s1+s2;
-                s2=s1; // 保存f(n-2)的值
-                s1=s; //保存f(n-1)的值
+                s1=s2; // 保存f(n-2)的值
+                s2=s; //保存f(n-1)的值
+
+                if (i==n) {
+                    System.out.print(s1+" ");
+                    System.out.print(s2+" ");
+                }
             }
             return s;
         }
