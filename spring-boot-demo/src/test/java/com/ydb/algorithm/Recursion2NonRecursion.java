@@ -1,5 +1,7 @@
 package com.ydb.algorithm;
 
+import java.util.Stack;
+
 /**
  * 递归转非递归
  * @Author ligeng
@@ -8,11 +10,13 @@ package com.ydb.algorithm;
  */
 public class Recursion2NonRecursion {
     public static void main(String[] args) {
-        f2(10);
+        f2(20);
         System.out.println();
-        f3(10, 1,1);
+        f3(20, 1,1);
         System.out.println();
-        f1(10);
+        f4(20);
+        System.out.println();
+        f1(20);
     }
 
     //斐波那契数列
@@ -65,5 +69,23 @@ public class Recursion2NonRecursion {
             return s;
         }
 
+    }
+
+    private static void f4(int n) {
+        Stack<Integer> stack = new Stack<>();
+        int s1, s2;
+        for (int i=0; i<=n; i++) {
+            if (i<2) {
+                stack.push(1);
+            } else {
+                s2 = stack.pop();
+                s1 = stack.peek();
+                stack.push(s2);
+                stack.push(s1+s2);
+            }
+        }
+        for (Integer item:stack) {
+            System.out.print(item+" ");
+        }
     }
 }
