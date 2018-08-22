@@ -1,6 +1,7 @@
 package com.ydb.algorithm;
 
 import java.util.Stack;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * 递归转非递归
@@ -9,13 +10,15 @@ import java.util.Stack;
  * @Time 下午8:36
  */
 public class Recursion2NonRecursion {
+    private static AtomicInteger count1 = new AtomicInteger(0);
+    private static AtomicInteger count2 = new AtomicInteger(0);
     public static void main(String[] args) {
-        int n = 45;
+        int n = 40;
         System.out.println("n="+n);
         long time1 = System.currentTimeMillis();
-        System.out.printf("非尾递归，返回值：%s ,时长：%s %n", f1(n), System.currentTimeMillis()-time1);
+        System.out.printf("非尾递归，返回值：%s ,时长：%s, 调用次数%s %n", f1(n), System.currentTimeMillis()-time1, count1.get());
         long time2 = System.currentTimeMillis();
-        System.out.printf("尾递归，返回值：%s ,时长：%s %n",f2(n, 1,1), System.currentTimeMillis()-time2);
+        System.out.printf("尾递归，返回值：%s ,时长：%s,调用次数%s %n",f2(n, 1,1), System.currentTimeMillis()-time2, count2.get());
         long time3 = System.currentTimeMillis();
         System.out.printf("迭代，返回值：%s ,时长：%s %n", f3(n),System.currentTimeMillis()-time3);
         long time4 = System.currentTimeMillis();
@@ -26,6 +29,7 @@ public class Recursion2NonRecursion {
     //斐波那契数列
     //递归
     private static int f1(int n) {
+        count1.addAndGet(1);
         int res;
         if (n==1 || n==0) {
             res = 1;
@@ -37,6 +41,7 @@ public class Recursion2NonRecursion {
 
     // 递归转尾递归
     private static int f2(int n, int s1, int s2) {
+        count2.addAndGet(1);
         int res;
         if (n<2) {
             res = s2;
