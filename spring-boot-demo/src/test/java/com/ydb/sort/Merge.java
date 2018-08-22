@@ -9,14 +9,14 @@ public class Merge {
     public static void main(String[] args) {
         int[] workSpace = new int[theArray.length];
 //        merge2(workSpace ,0,5, 9);
-        recMerge(workSpace, 0, 9);
+        recMerge(0, 9);
         Util.print(theArray);
     }
-    private static void recMerge(int[] workSpace, int first, int last){
+    private static void recMerge(int first, int last){
         if (first == last) return;
         int mid = (last+first)/2;
-        recMerge(workSpace, first, mid);
-        recMerge(workSpace, mid+1, last);
+        recMerge(first, mid);
+        recMerge(mid+1, last);
 //        merge2(workSpace, first, mid+1, last);
         merge3(first, mid+1, last);
     }
