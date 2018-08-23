@@ -9,7 +9,7 @@ public class Merge {
     public static void main(String[] args) {
         int[] workSpace = new int[theArray.length];
 //        merge2(workSpace ,0,5, 9);
-        recMerge(0, 9);
+        nonRecMerge();
         Util.print(theArray);
     }
     private static void recMerge(int first, int last){
@@ -19,6 +19,25 @@ public class Merge {
         recMerge(mid+1, last);
 //        merge2(workSpace, first, mid+1, last);
         merge3(first, mid+1, last);
+    }
+
+    private static void nonRecMerge() {
+        int n = theArray.length;
+        //步长
+        int s = 2;
+        int i;
+        while(s<=n){
+            i=0;
+            while(i+s-1<=n-1){
+                merge3(i,i+s/2-1,i+s-1);
+                i+=s;
+            }
+            //处理末尾残余部分
+            merge3(i,(i+n)/2,n-1);
+            s*=2;
+        }
+        //最后再从头到尾处理一遍
+        merge3(0,s/2-1,n-1);
     }
 
 
