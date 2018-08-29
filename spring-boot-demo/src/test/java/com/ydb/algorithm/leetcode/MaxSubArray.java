@@ -9,7 +9,7 @@ package com.ydb.algorithm.leetcode;
  */
 public class MaxSubArray {
     public static void main(String[] args) {
-        System.out.println(solution4(new int[]{1}));
+        System.out.println(solution4(new int[]{-2,1}));
     }
 
     /**
@@ -52,10 +52,10 @@ public class MaxSubArray {
     public static int solution4(int[] nums) {
         int thisSum = nums[0], sum=nums[0];
         for (int i=1; i<nums.length; i++) {
-            thisSum += nums[i];
             if (thisSum < 0) {
                 thisSum = 0;
             }
+            thisSum += nums[i];
             sum = Math.max(thisSum, sum);
         }
         return sum;
