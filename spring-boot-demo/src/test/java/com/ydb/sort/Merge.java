@@ -5,7 +5,7 @@ package com.ydb.sort;
  * Created by ligeng on 17/11/28.
  */
 public class Merge {
-    private static final int[] theArray = {6,1,2,7,9,3,4,5,10,8};
+    private static final int[] theArray = {11,6,1,2,7,9,3,4,5,10,8};
     public static void main(String[] args) {
         int[] workSpace = new int[theArray.length];
 //        merge2(workSpace ,0,5, 9);
@@ -29,15 +29,15 @@ public class Merge {
         while(s<=n){
             i=0;
             while(i+s-1<=n-1){
-                merge3(i,i+s/2-1,i+s-1);
+                merge3(i,i+s/2,i+s-1);
                 i+=s;
             }
             //处理末尾残余部分
-            merge3(i,(i+n)/2,n-1);
+            merge3(i,(i+n+1)/2,n-1);
             s*=2;
         }
         //最后再从头到尾处理一遍
-        merge3(0,s/2-1,n-1);
+        merge3(0,s/2,n-1);
     }
 
 
@@ -48,6 +48,7 @@ public class Merge {
      * @param right_
      */
     private static void merge3(int left_,int middle_,int right_){
+        System.out.println(left_ + " " + middle_ + " "+right_);
         int left=left_, leftBound=middle_-1;
         int right=middle_,rightBound=right_;
         int k=0;
