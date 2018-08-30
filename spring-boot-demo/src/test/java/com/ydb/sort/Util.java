@@ -16,4 +16,10 @@ public class Util {
         }
         System.out.println();
     }
+    static void print(Integer[] s){
+        for (int t:s){
+            System.out.print(t+",");
+        }
+        System.out.println();
+    }
 }
