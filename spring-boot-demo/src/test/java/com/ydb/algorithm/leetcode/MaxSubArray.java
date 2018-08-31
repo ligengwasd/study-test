@@ -33,14 +33,24 @@ public class MaxSubArray {
     }
 
 
-
+    /**
+     * 最优解：
+     * maxEndingHere表示以第n个节点结尾的和最大的子序列，x表示第n+1个节点，
+     * 所以以第n+1个节点结尾的和最大的子序列有两种可能：
+     *  1、不包含节点n，那么该子序列就只有x一个元素
+     *  2、包含几点n，那么该子序列的和为 maxEndingHere+x
+     * 所以以第n+1个节点结尾的和最大的子序列的和为Math.max(num+maxEndingHere, num);
+     * 参考：https://zh.wikipedia.org/wiki/%E6%9C%80%E5%A4%A7%E5%AD%90%E6%95%B0%E5%88%97%E9%97%AE%E9%A2%98
+     * @param nums
+     * @return
+     */
     public static int solution(int[] nums) {
-        int res = Integer.MIN_VALUE, curSum=0;
+        int maxSoFar = Integer.MIN_VALUE, maxEndingHere=0;
         for (int num : nums) {
-            curSum = Math.max(num+curSum, num);
-            res = Math.max(res, curSum);
+            maxEndingHere = Math.max(num+maxEndingHere, num);
+            maxSoFar = Math.max(maxSoFar, maxEndingHere);
         }
-        return res;
+        return maxSoFar;
     }
 
     /**
