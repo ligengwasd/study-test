@@ -7,7 +7,7 @@ package com.ydb.algorithm.leetcode;
  */
 public class Q110_BalancedBinaryTree {
     public static void main(String[] args) {
-        TreeNode root = Q108_SortedArrayToBST.solution(new int[]{-10, -3, 0, 5, 9});
+        TreeNode root = Q108_SortedArrayToBST.solution(new Integer[]{-10, -3, 0, 5, 9});
         System.out.println(isBalanced(root));
     }
     // 第一种解法

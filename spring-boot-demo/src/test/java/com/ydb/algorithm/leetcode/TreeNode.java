@@ -6,10 +6,10 @@ package com.ydb.algorithm.leetcode;
  * @Time 下午3:52
  */
 public class TreeNode {
-    int val;
+    Integer val;
     TreeNode left;
     TreeNode right;
-    TreeNode(int x) { val = x; }
+    TreeNode(Integer x) { val = x; }
 
     public String toString() {
         return val+"";

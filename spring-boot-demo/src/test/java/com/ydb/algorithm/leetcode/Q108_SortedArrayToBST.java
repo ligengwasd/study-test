@@ -7,11 +7,11 @@ package com.ydb.algorithm.leetcode;
  */
 public class Q108_SortedArrayToBST {
     public static void main(String[] args) {
-        TreeNode head = solution(new int[]{-10, -3, 0, 5, 9});
+        TreeNode head = solution(new Integer[]{-10, -3, 0, 5, 9});
         System.out.println(head);
     }
 
-    public static TreeNode solution(int[] nums) {
+    public static TreeNode solution(Integer[] nums) {
         if (nums.length==0){
             return null;
         }
@@ -19,7 +19,7 @@ public class Q108_SortedArrayToBST {
 
     }
 
-    public static TreeNode helper(int[] num, int low, int high) {
+    public static TreeNode helper(Integer[] num, int low, int high) {
         if (low > high) {
             return null;
         }
