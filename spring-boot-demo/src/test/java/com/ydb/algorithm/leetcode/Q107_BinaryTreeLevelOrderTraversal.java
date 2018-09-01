@@ -51,7 +51,7 @@ public class Q107_BinaryTreeLevelOrderTraversal {
                 }
                 subList.add(queue.poll().val);
             }
-            wrapList.add(subList);
+            wrapList.add(0,subList);
 
         }
         return wrapList;
