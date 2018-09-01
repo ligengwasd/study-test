@@ -13,27 +13,31 @@ import java.util.concurrent.LinkedBlockingQueue;
  */
 public class Q107_BinaryTreeLevelOrderTraversal {
     public static void main(String[] args) {
-        TreeNode root = new TreeNode(1);
-        TreeNode node11 = new TreeNode(11);
-        TreeNode node12 = new TreeNode(12);
-        TreeNode node21 = new TreeNode(21);
-        TreeNode node22 = new TreeNode(22);
-        TreeNode node23 = new TreeNode(23);
+        TreeNode e = new   TreeNode(5);
+        TreeNode g = new   TreeNode(7);
+        TreeNode h = new   TreeNode(8);
 
-        root.left = node11;
-        root.right = node12;
+        TreeNode l = new   TreeNode(12);
+        TreeNode m = new   TreeNode(13);
+        TreeNode n = new   TreeNode(14);
+        TreeNode k = new   TreeNode(11, n, null);
+        TreeNode j = new   TreeNode(10, l, m);
+        TreeNode i = new   TreeNode(9, j, k);
+        TreeNode d = new   TreeNode(4, null, g);
 
-        node11.left= node21;
-        node11.right = node22;
+        TreeNode f = new   TreeNode(6, h, i);
+        TreeNode b = new   TreeNode(2, d, e);
+        TreeNode c = new   TreeNode(3, f, null);
 
-        node12.left = node23;
+        TreeNode root = new   TreeNode(1, b, c);
+
 
         levelOrderBottom(root);
     }
 
-    public static List<List<Integer>> levelOrderBottom(TreeNode root) {
+    public static List<List> levelOrderBottom(TreeNode root) {
         Queue<TreeNode> queue = new LinkedList<>();
-        List<List<Integer>> wrapList = new LinkedList<List<Integer>>();
+        List<List> wrapList = new LinkedList<List>();
 
         if(root == null) return wrapList;
 
@@ -41,7 +45,7 @@ public class Q107_BinaryTreeLevelOrderTraversal {
 
         while (!queue.isEmpty()) {
             int size=queue.size();
-            List<Integer> subList = new ArrayList<>();
+            List subList = new ArrayList<>();
             for (int i=0; i<size; i++) {
                 if (queue.peek().left != null) {
                     queue.offer(queue.peek().left);
