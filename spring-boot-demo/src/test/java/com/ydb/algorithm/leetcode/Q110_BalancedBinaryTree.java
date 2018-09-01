@@ -10,14 +10,17 @@ public class Q110_BalancedBinaryTree {
         TreeNode root = Q108_SortedArrayToBST.solution(new int[]{-10, -3, 0, 5, 9});
         System.out.println(isBalanced(root));
     }
+    // 第一种解法
     public static boolean isBalanced(TreeNode root) {
         if (root == null) return true;
-        return (depth(root.left)-depth(root.right) <= 1) ? isBalanced(root.left) : isBalanced(root.right) ;
+        return Math.abs(depth(root.left)-depth(root.right)) <= 1 && isBalanced(root.left) && isBalanced(root.right) ;
     }
     public static int depth(TreeNode root) {
         if (root == null) return 0;
         return Math.max(depth(root.left), depth(root.right))+1;
     }
+
+    // 第二种解法
 
 
 
