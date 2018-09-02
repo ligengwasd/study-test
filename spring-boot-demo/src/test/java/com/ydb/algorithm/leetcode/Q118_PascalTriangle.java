@@ -11,7 +11,7 @@ import java.util.List;
  * @Date 18/9/2
  * @Time 下午12:55
  */
-public class Q113_PascalTriangle {
+public class Q118_PascalTriangle {
     public static void main(String[] args) {
         generate(5);
     }
