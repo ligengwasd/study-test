@@ -7,10 +7,10 @@ package com.ydb.algorithm.leetcode;
  */
 public class Q123_ValidPalindrome {
     public static void main(String[] args) {
-
+        System.out.println(isPalindrome("A man, a plan, a canal: Panama"));
     }
 
-    public boolean isPalindrome(String s) {
+    public static boolean isPalindrome(String s) {
         if (s.isEmpty()) return true;
         int head=0, tail = s.length()-1;
         char cHead, cTail;
@@ -19,7 +19,7 @@ public class Q123_ValidPalindrome {
             cHead = s.charAt(head);
             cTail = s.charAt(tail);
             if (!Character.isLetterOrDigit(cHead)) {
-                cHead++;
+                head++;
                 continue;
             } else if (!Character.isLetterOrDigit(cTail)) {
                 tail--;
@@ -28,8 +28,8 @@ public class Q123_ValidPalindrome {
                 if (Character.toLowerCase(cHead) != Character.toLowerCase(cTail)) {
                     return false;
                 }
-                cHead++;
-                cTail--;
+                head++;
+                tail--;
             }
         }
         return true;
