@@ -23,6 +23,7 @@ public class Q206_ReverseLinkedList {
      * @return
      */
     public static ListNode reverseList(ListNode head) {
+        if (head == null) return null;
         ListNode newLinkHead = head;
         head = head.next;
         newLinkHead.next = null;
