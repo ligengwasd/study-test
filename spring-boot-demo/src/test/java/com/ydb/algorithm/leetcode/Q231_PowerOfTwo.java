@@ -9,7 +9,9 @@ import java.util.HashSet;
  * @Time 下午8:03
  */
 public class Q231_PowerOfTwo {
-
+    public static void main(String[] args) {
+        System.out.println(2&4);
+    }
     public boolean isPowerOfTwo(int n) {
         if (n==0) return false;
         while (n%2 == 0) n/=2;
@@ -22,6 +24,10 @@ public class Q231_PowerOfTwo {
 
     public boolean isPowerOfTwo3(int n) {
         return n>0 && Integer.bitCount(n) ==1 ;
+    }
+
+    public boolean isPowerOfTwo4(int n) {
+        return n > 0 && ((n & (n-1)) == 0);
     }
 
 
