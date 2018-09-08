@@ -1,5 +1,10 @@
 package com.ydb.algorithm.leetcode;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 /**
  * @Author ligeng
  * @Date 18/9/8
@@ -7,22 +12,22 @@ package com.ydb.algorithm.leetcode;
  */
 public class Q204_CountPrimes {
     public static void main(String[] args) {
-        System.out.println(countPrimes(12));
+        System.out.println(countPrimes(10));
     }
 
     public static int countPrimes(int n) {
-        if (n<=2) return 0;
-        if (n==3) return 1;
+        boolean[] notPrime = new boolean[n];
         int count = 0;
-        for (int i=2; i<=(n+1)/2; i++) {
-
-            for (int j=i; j<=(n+1)/2; j++) {
-                if (i*j < n) {
-                    count++;
+        for (int i = 2; i < n; i++) {
+            if (notPrime[i] == false) {
+                count++;
+                for (int j = 2; i*j < n; j++) {
+                    notPrime[i*j] = true;
                 }
             }
         }
-        return n - count- 2;
+
+        return count;
     }
 
 
