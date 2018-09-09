@@ -13,10 +13,9 @@ import java.util.concurrent.Executors;
  * @Time 下午6:58
  */
 public class ArrayBlockingQueueTest {
-    private static ArrayBlockingQueue<Integer> queue = new ArrayBlockingQueue<Integer>(10);
+    private static ArrayBlockingQueue<String> queue = new ArrayBlockingQueue<String>(10);
     public static void main(String[] args) {
-        ExecutorService executor = Executors.newFixedThreadPool(10);
-        Runnable take = new Runnable() {
+        Runnable task = new Runnable() {
             @Override
             public void run() {
                 try {
@@ -27,16 +26,15 @@ public class ArrayBlockingQueueTest {
                 System.out.println("task finished");
             }
         };
-
-        executor.submit(take);
-        executor.submit(take);
-        executor.submit(take);
+        Thread thread1 = new Thread(task);thread1.start();
+        Thread thread2 = new Thread(task);thread2.start();
+        Thread thread3 = new Thread(task);thread3.start();
 
 
         Scanner s = new Scanner(System.in);
         while (s.hasNext()) {
-            int i = s.nextInt();
-            if (i==100) {
+            String i = s.next();
+            if ("break".equals(i)) {
                 s.close();
                 break;
             }
@@ -46,8 +44,10 @@ public class ArrayBlockingQueueTest {
                 e.printStackTrace();
             }
         }
-        System.out.println("SSSS");
-        executor.shutdownNow();
+        thread1.interrupt();
+        thread2.interrupt();
+        thread3.interrupt();
+        System.out.println("exit");
     }
 
 
