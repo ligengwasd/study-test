@@ -1,9 +1,7 @@
 package com.ydb.algorithm.leetcode;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.concurrent.ArrayBlockingQueue;
+import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * @Author ligeng
@@ -16,8 +14,7 @@ public class Q18_4Sum {
         System.out.println();
     }
     public static List<List<Integer>> fourSum(int[] nums, int target) {
-        List<List<Integer>> result = new ArrayList<>();
-
+        Set<List<Integer>> set = new HashSet<>();
         Arrays.sort(nums);
         for (int i=0; i<nums.length-3; i++) {
             for (int j=i+1; j<nums.length-2; j++) {
@@ -29,12 +26,13 @@ public class Q18_4Sum {
                     } else if (sum < target){
                         k++;
                     } else {
-                        result.add(Arrays.asList(nums[i], nums[j], nums[k], nums[l]));
+                        set.add(Arrays.asList(nums[i], nums[j], nums[k], nums[l]));
                         l--;
                     }
                 }
             }
         }
-        return result;
+
+        return set.stream().collect(Collectors.toList());
     }
 }
