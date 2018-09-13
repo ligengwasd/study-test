@@ -12,7 +12,7 @@ public class Q64_MinimumPathSum {
         System.out.println(minPathSum(new int[][]{
                 new int[]{1,3,1},
                 new int[]{1,5,1},
-                new int[]{4,2,1},
+//                new int[]{4,2,1},
 //                new int[]{1,2},
 //                new int[]{5,6},
 //                new int[]{1,1},
@@ -20,34 +20,21 @@ public class Q64_MinimumPathSum {
     }
     public static int minPathSum(int[][] grid) {
         int width = grid[0].length, height = grid.length;
-        int dp[] = new int[width];
+        int dp[][] = new int[height][width];
 
         for (int i=0; i<height; i++) {
-            int pathX = 0;
-            int pathY = 0;
             for (int j=0; j<width; j++) {
-                pathX += grid[0][j];
-                pathY = 0;
-                for (int k=1; k<=i; k++) {
-                    pathY += grid[k][j];
-                }
-                if (j==0) {
-                    dp[j] = pathY+pathX;
+                if (i==0 && j==0) {
+                    dp[i][j] =  grid[i][j];
+                } else if (i==0 && j>0) {
+                    dp[i][j] = grid[i][j] + dp[i][j-1];
+                } else if (i>0 && j==0) {
+                    dp[i][j] = dp[i-1][j] + grid[i][j];
                 } else {
-                    dp[j] = Math.min(pathX+pathY, dp[j-1]+grid[i][j]);
+                    dp[i][j] = Math.min(dp[i-1][j], dp[i][j-1]) + grid[i][j];
                 }
             }
         }
-        return dp[width-1];
+        return dp[height-1][width-1];
     }
-//    public static int getPath(int[][] grid, int x, int y) {
-//        int sum=0;
-//        for (int i=0; i<x; i++) {
-//            sum += grid[i][y];
-//        }
-//        for (int j=0; j<y; j++) {
-//            sum += grid[x][j];
-//        }
-//        return sum;
-//    }
 }
