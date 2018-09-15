@@ -13,17 +13,19 @@ public class Q532_KdiffPairsInAnArray {
     }
 
     public static int findPairs(int[] nums, int k) {
-        Set<Set<Integer>> set = new HashSet<>();
-        for (int i=0; i<nums.length; i++) {
+        Arrays.sort(nums);
+        int res = 0;
+        for (int i=0; i<nums.length-1; i++) {
             for (int j=i+1; j<nums.length; j++) {
-                if (Math.abs(nums[i] - nums[j]) == k) {
-                    HashSet<Integer> integers = new HashSet<>();
-                    integers.add(nums[i]);
-                    integers.add(nums[j]);
-                    set.add(integers);
+                if (nums[j] - nums[i] == k) {
+                    res++;
+                    break;
                 }
             }
+            while(i<nums.length-1 && nums[i] == nums[i+1]) {
+                i++;
+            }
         }
-        return set.size();
+        return res;
     }
 }
