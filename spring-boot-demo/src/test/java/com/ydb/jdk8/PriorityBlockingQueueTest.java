@@ -14,6 +14,7 @@ import java.util.concurrent.TimeUnit;
  */
 public class PriorityBlockingQueueTest {
     public static void main(String[] args) {
+        // 消费者
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -29,6 +30,7 @@ public class PriorityBlockingQueueTest {
         }).start();
 
 
+        // 生产者
         Scanner s = new Scanner(System.in);
         while (s.hasNext()) {
             String i = s.next();

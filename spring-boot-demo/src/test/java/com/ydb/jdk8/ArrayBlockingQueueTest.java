@@ -15,6 +15,7 @@ import java.util.concurrent.Executors;
 public class ArrayBlockingQueueTest {
     private static ArrayBlockingQueue<String> queue = new ArrayBlockingQueue<String>(10);
     public static void main(String[] args) {
+        // 消费者
         Runnable task = new Runnable() {
             @Override
             public void run() {
@@ -30,7 +31,7 @@ public class ArrayBlockingQueueTest {
         Thread thread2 = new Thread(task);thread2.start();
         Thread thread3 = new Thread(task);thread3.start();
 
-
+        // 生产者
         Scanner s = new Scanner(System.in);
         while (s.hasNext()) {
             String i = s.next();
