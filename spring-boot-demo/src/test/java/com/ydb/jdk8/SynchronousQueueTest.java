@@ -28,8 +28,8 @@ public class SynchronousQueueTest {
             while (true) {
                 try {
                     String data = UUID.randomUUID().toString();
-                    System.out.println("生产者: " + data);
                     blockingQueue.put(data);
+                    System.out.println("生产者: " + data);
                     Thread.sleep(1000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
