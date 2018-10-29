@@ -14,6 +14,7 @@ public class Q832_FlippingAnImage {
         Q832_FlippingAnImage image = new Q832_FlippingAnImage();
 
         int[][] invertImage = image.flipAndInvertImage(new int[][]{
+//                new int[]{1}
                 new int[]{1,1,0},
                 new int[]{1,0,1},
                 new int[]{0,0,0}
@@ -25,15 +26,16 @@ public class Q832_FlippingAnImage {
     public int[][] flipAndInvertImage(int[][] A) {
         for (int height=0; height < A.length; height++) {
             int left=0, right=A[height].length-1;
-            while (left < right) {
+            while (left <= right) {
+                if (left == right) {
+                    if (A[height][left] == 0) A[height][left] = 1;
+                    else A[height][left] = 0;
+                    break;
+                }
                 this.swap(A[height], left, right);
                 this.reverse(A, height, left, right);
                 left++;
                 right--;
-                if (left == right) {
-                    if (A[height][left] == 0) A[height][left] = 1;
-                    else A[height][left] = 0;
-                }
             }
         }
         return A;
