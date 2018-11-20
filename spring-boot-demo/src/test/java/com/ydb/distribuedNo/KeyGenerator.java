@@ -1,4 +1,4 @@
-package com.ydb.disno;
+package com.ydb.distribuedNo;
 
 /**
  * @Author ligeng

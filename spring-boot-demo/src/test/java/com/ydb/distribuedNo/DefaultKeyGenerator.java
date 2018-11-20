@@ -1,7 +1,6 @@
-package com.ydb.disno;
+package com.ydb.distribuedNo;
 
 import com.google.common.base.Preconditions;
-import com.google.common.base.Strings;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
@@ -58,16 +57,7 @@ public class DefaultKeyGenerator implements KeyGenerator{
     private long lastTime;
 
     public static void initWorkerId() {
-        String workerId = System.getProperty(WORKER_ID_PROPERTY_KEY);
-        if (!Strings.isNullOrEmpty(workerId)) {
-            setWorkerId(Long.valueOf(workerId));
-            return;
-        }
-        workerId = System.getenv(WORKER_ID_ENV_KEY);
-        if (Strings.isNullOrEmpty(workerId)) {
-            return;
-        }
-        setWorkerId(Long.valueOf(workerId));
+        setWorkerId(1);
     }
 
     /**
@@ -94,13 +84,22 @@ public class DefaultKeyGenerator implements KeyGenerator{
                 currentMillis = waitUntilNextTime(currentMillis);
             }
         } else {
-            sequence = 0;
+            sequence = 1;
         }
         lastTime = currentMillis;
         if (log.isDebugEnabled()) {
             log.debug("{}-{}-{}", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS").format(new Date(lastTime)), workerId, sequence);
         }
-        return ((currentMillis - EPOCH) << TIMESTAMP_LEFT_SHIFT_BITS) | (workerId << WORKER_ID_LEFT_SHIFT_BITS) | sequence;
+        System.out.println(Long.toBinaryString(Long.MAX_VALUE));
+//        System.out.println(TIMESTAMP_LEFT_SHIFT_BITS);
+        System.out.println(Long.toBinaryString(currentMillis - EPOCH));
+        System.out.println(Long.toBinaryString((currentMillis - EPOCH) << TIMESTAMP_LEFT_SHIFT_BITS));
+//        System.out.println(Long.toBinaryString(workerId));
+        System.out.println(Long.toBinaryString(workerId << WORKER_ID_LEFT_SHIFT_BITS));
+        return ((currentMillis - EPOCH) << TIMESTAMP_LEFT_SHIFT_BITS) | (workerId << WORKER_ID_LEFT_SHIFT_BITS) | (sequence<<8);
+//        1111000010111101111011010000110000000000000000000000000000
+//                                                     1000000000000
+
     }
 
     private long waitUntilNextTime(final long lastTime) {
