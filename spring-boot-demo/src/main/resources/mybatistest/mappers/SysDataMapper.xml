@@ -4,7 +4,7 @@
     <!--<cache type="org.mybatis.caches.redis.RedisCache" />-->
     <!--<cache type="com.ydb.common.mybatisCache.RedisCache" />-->
 
-    <select id="findById" resultType="sysData">
+    <select id="findById" resultType="com.ydb.entity.mysql.SysData">
       SELECT * FROM sys_data WHERE id = #{id}
     </select>
     

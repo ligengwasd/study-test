@@ -19,7 +19,7 @@ import java.io.InputStream;
  * @Date 18/11/28
  * @Time 下午10:47
  */
-@ActiveProfiles("development")
+//@ActiveProfiles("development")
 public class MyBatisTest {
     private SqlSessionFactory sqlSessionFactory;
 
