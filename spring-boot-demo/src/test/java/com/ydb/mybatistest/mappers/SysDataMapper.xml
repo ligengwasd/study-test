@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ydb.dao.mapper.SysDataMapper">
+    <!--<cache type="org.mybatis.caches.redis.RedisCache" />-->
+    <!--<cache type="com.ydb.common.mybatisCache.RedisCache" />-->
+
+    <select id="findById" resultType="sysData">
+      SELECT * FROM sys_data WHERE id = #{id}
+    </select>
+    
+    <insert id="save">
+        INSERT sys_data(name, type, level) VALUE (#{name}, #{type},#{level})
+    </insert>
+</mapper>
