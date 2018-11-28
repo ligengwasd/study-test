@@ -17,6 +17,11 @@
 <configuration>
     <properties resource="mybatistest/jdbc.properties"/>
 
+    <typeHandlers>
+        <typeHandler handler="com.ydb.enums.EnumTypeHandler" javaType="com.ydb.enums.SysDataEnum" jdbcType="INTEGER" />
+        <typeHandler handler="com.ydb.enums.EnumTypeHandler" javaType="com.ydb.enums.LevelEnum" jdbcType="INTEGER" />
+    </typeHandlers>
+
     <environments default="development">
         <environment id="development">
             <transactionManager type="JDBC"/>
