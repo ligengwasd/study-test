@@ -1,4 +1,4 @@
-package com.ydb.xpath;
+package com.ydb.mybatistest.xpath;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
