@@ -22,9 +22,11 @@ public class ReflectorTest {
         ObjectWrapperFactory objectWrapperFactory = new DefaultObjectWrapperFactory();
 
         MetaObject metaObject = MetaObject.forObject(new SysData(){{
-            setName("111");
+            setName("wwww");
         }}, objectFactory, objectWrapperFactory, reflectorFactory);
 
+        System.out.println(metaObject.getValue("name"));
+        metaObject.setValue("name", "111");
         System.out.println(metaObject.getValue("name"));
 
     }
