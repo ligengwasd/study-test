@@ -21,4 +21,8 @@ public class Blog {
     private String title;
     private Author author;
     private List<Post> posts;
+
+    public static String staticMethod() {
+        return "staticMethod";
+    }
 }

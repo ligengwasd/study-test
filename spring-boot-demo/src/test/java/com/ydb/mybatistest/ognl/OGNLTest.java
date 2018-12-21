@@ -10,7 +10,9 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @Author ligeng
@@ -28,6 +30,26 @@ public class OGNLTest {
         System.out.println(Ognl.getValue(Ognl.parseExpression("#author.username"), context, context.getRoot()));
 
     }
+
+    @Test
+    public void test2() throws OgnlException {
+        System.out.println(Ognl.getValue(Ognl.parseExpression("author.getEmail()"), context, context.getRoot()));
+        System.out.println(Ognl.getValue(Ognl.parseExpression("@com.ydb.mybatistest.pojo.Blog@staticField"), context, context.getRoot()));
+        System.out.println(Ognl.getValue(Ognl.parseExpression("@com.ydb.mybatistest.pojo.Blog@staticMethod()"), context, context.getRoot()));
+    }
+
+    @Test
+    public void test3() throws OgnlException {
+        System.out.println(Ognl.getValue(Ognl.parseExpression("posts[0]"), context, context.getRoot()));
+
+        Map<String, String> map= new HashMap<>();
+        map.put("kl","vl");
+        map.put("k2", "v2");
+        context.put("map", map);
+
+        System.out.println(Ognl.getValue(Ognl.parseExpression("#map['kl']"), context, context.getRoot()));
+    }
+
 
     @Before
     public void start() {
