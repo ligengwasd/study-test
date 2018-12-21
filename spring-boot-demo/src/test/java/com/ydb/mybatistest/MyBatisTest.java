@@ -3,7 +3,9 @@ package com.ydb.mybatistest;
 import com.ydb.dao.mapper.SysDataMapper;
 import com.ydb.entity.mysql.SysData;
 import com.ydb.enums.LevelEnum;
+import org.apache.ibatis.executor.BaseExecutor;
 import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.mapping.CacheBuilder;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
@@ -14,6 +16,7 @@ import org.springframework.test.context.ActiveProfiles;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Arrays;
 import java.util.EnumMap;
 
 /**
@@ -41,7 +44,6 @@ public class MyBatisTest {
             SysDataMapper sysDataMapper = session.getMapper(SysDataMapper.class);
             SysData sysData = sysDataMapper.findById(169452);
             System.out.println(1);
-
         } finally {
             session.commit();
             session.close();
@@ -49,6 +51,8 @@ public class MyBatisTest {
     }
 
     public static void main(String[] args) {
+        Arrays.sort();
+        CacheBuilder
         EnumMap<LevelEnum, Object> map = new EnumMap<>(LevelEnum.class);
         System.out.println(1);
     }
