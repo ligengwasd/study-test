@@ -51,8 +51,6 @@ public class MyBatisTest {
     }
 
     public static void main(String[] args) {
-        Arrays.sort();
-        CacheBuilder
         EnumMap<LevelEnum, Object> map = new EnumMap<>(LevelEnum.class);
         System.out.println(1);
     }
