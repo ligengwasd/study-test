@@ -1,8 +1,12 @@
 package com.ydb.mybatistest.io;
 
+import com.ydb.mybatistest.pojo.Blog;
+import org.apache.ibatis.io.ResolverUtil;
 import org.junit.Test;
 
+import java.io.Serializable;
 import java.net.URL;
+import java.util.Set;
 
 /**
  * @Author ligeng
@@ -17,5 +21,13 @@ public class ClassLoaderTest {
         URL url = classLoader.getResource("mybatis-config.xml");
 //        Blog test = loadClass.newInstance();
         System.out.println(url);
+    }
+
+    @Test
+    public void testResolverUtil() {
+        ResolverUtil<Blog> resolverUtil = new ResolverUtil<>();
+        resolverUtil.findImplementations(Serializable.class, "com.ydb.mybatistest.pojo");
+        Set<Class<? extends Blog>> classes = resolverUtil.getClasses();
+        System.out.println(1);
     }
 }
