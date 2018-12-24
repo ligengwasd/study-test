@@ -1,6 +1,7 @@
 package com.ydb.mybatistest.io;
 
 import com.ydb.mybatistest.pojo.Blog;
+import lombok.Data;
 import org.apache.ibatis.io.ResolverUtil;
 import org.apache.ibatis.io.VFS;
 import org.junit.Test;
@@ -32,6 +33,14 @@ public class ClassLoaderTest {
         resolverUtil.findImplementations(Serializable.class, "com.ydb.mybatistest.pojo");
         Set<Class<? extends Blog>> classes = resolverUtil.getClasses();
         System.out.println(1);
+    }
+
+    @Test
+    public void testResolverUtil2() {
+        ResolverUtil<Blog> resolverUtil = new ResolverUtil<>();
+        resolverUtil.findAnnotated(Data.class, "com.ydb.mybatistest.pojo");
+        Set<Class<? extends Blog>> classes = resolverUtil.getClasses();
+        System.out.println(classes);
     }
 
     @Test
