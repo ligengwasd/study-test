@@ -5,6 +5,7 @@ import lombok.Data;
 import org.apache.ibatis.io.ResolverUtil;
 import org.apache.ibatis.io.VFS;
 import org.junit.Test;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
 import java.io.Serializable;
@@ -38,7 +39,7 @@ public class ClassLoaderTest {
     @Test
     public void testResolverUtil2() {
         ResolverUtil<Blog> resolverUtil = new ResolverUtil<>();
-        resolverUtil.findAnnotated(Data.class, "com.ydb.mybatistest.pojo");
+        resolverUtil.findAnnotated(RestController.class, "com.ydb.controller");
         Set<Class<? extends Blog>> classes = resolverUtil.getClasses();
         System.out.println(classes);
     }
