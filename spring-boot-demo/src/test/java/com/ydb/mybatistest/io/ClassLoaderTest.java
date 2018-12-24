@@ -2,10 +2,13 @@ package com.ydb.mybatistest.io;
 
 import com.ydb.mybatistest.pojo.Blog;
 import org.apache.ibatis.io.ResolverUtil;
+import org.apache.ibatis.io.VFS;
 import org.junit.Test;
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.net.URL;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -29,5 +32,12 @@ public class ClassLoaderTest {
         resolverUtil.findImplementations(Serializable.class, "com.ydb.mybatistest.pojo");
         Set<Class<? extends Blog>> classes = resolverUtil.getClasses();
         System.out.println(1);
+    }
+
+    @Test
+    public void testVFS() throws IOException {
+        VFS vfs = VFS.getInstance();
+        List<String> list = vfs.list("com.ydb.mybatistest.pojo");
+        System.out.println(list);
     }
 }
