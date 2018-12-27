@@ -1,5 +1,6 @@
 package com.ydb.guava;
 
+import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 import org.junit.Test;
 
@@ -21,4 +22,12 @@ public class ObjectsTest {
 
         System.out.println(Objects.hashCode("1","2"));
     }
+
+    @Test
+    public void test2() {
+        System.out.println(MoreObjects.toStringHelper(this).add("x", 1).toString());
+    }
+
+
+
 }
