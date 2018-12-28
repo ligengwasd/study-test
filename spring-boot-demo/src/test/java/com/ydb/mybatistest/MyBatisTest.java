@@ -3,6 +3,7 @@ package com.ydb.mybatistest;
 import com.ydb.dao.mapper.SysDataMapper;
 import com.ydb.entity.mysql.SysData;
 import com.ydb.enums.LevelEnum;
+import com.ydb.enums.SysDataEnum;
 import org.apache.ibatis.executor.BaseExecutor;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.mapping.CacheBuilder;
@@ -42,7 +43,12 @@ public class MyBatisTest {
         SqlSession session = sqlSessionFactory.openSession();
         try {
             SysDataMapper sysDataMapper = session.getMapper(SysDataMapper.class);
-            SysData sysData = sysDataMapper.findById(169452);
+            SysData sysData = sysDataMapper.findById(5);
+            sysDataMapper.save(new SysData(){{
+                setName("name");
+                setType(SysDataEnum.type1);
+                setLevel(LevelEnum.type1);
+            }});
             System.out.println(1);
         } finally {
             session.commit();

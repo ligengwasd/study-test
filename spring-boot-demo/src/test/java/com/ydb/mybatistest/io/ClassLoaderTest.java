@@ -47,7 +47,7 @@ public class ClassLoaderTest {
     @Test
     public void testVFS() throws IOException {
         VFS vfs = VFS.getInstance();
-        List<String> list = vfs.list("com.ydb.mybatistest.pojo");
+        List<String> list = vfs.list("com/ydb/mybatistest/pojo");
         System.out.println(list);
     }
 }
