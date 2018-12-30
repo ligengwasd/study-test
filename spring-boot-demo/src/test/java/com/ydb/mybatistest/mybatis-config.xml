@@ -21,6 +21,12 @@
         <typeHandler handler="com.ydb.enums.EnumTypeHandler" javaType="com.ydb.enums.SysDataEnum" jdbcType="INTEGER" />
         <typeHandler handler="com.ydb.enums.EnumTypeHandler" javaType="com.ydb.enums.LevelEnum" jdbcType="INTEGER" />
     </typeHandlers>
+    
+    <!--<plugins>-->
+        <!--<plugin interceptor="">-->
+            <!--<property name="" value=""/>-->
+        <!--</plugin>-->
+    <!--</plugins>-->
 
     <environments default="development">
         <environment id="development">

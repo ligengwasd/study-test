@@ -3,6 +3,7 @@ package com.ydb.mybatistest.io;
 import com.ydb.mybatistest.pojo.Blog;
 import lombok.Data;
 import org.apache.ibatis.io.ResolverUtil;
+import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.io.VFS;
 import org.junit.Test;
 import org.springframework.web.bind.annotation.RestController;
@@ -11,6 +12,7 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.net.URL;
 import java.util.List;
+import java.util.Properties;
 import java.util.Set;
 
 /**
@@ -49,5 +51,12 @@ public class ClassLoaderTest {
         VFS vfs = VFS.getInstance();
         List<String> list = vfs.list("com/ydb/mybatistest/pojo");
         System.out.println(list);
+    }
+
+    @Test
+    public void testResou() throws IOException {
+        Properties properties = Resources.getResourceAsProperties("mybatistest/jdbc.properties");
+        System.out.println(properties);
+
     }
 }

@@ -3,6 +3,9 @@ package com.ydb;
 import com.ydb.dao.repository.SysDataRepository;
 import com.ydb.entity.mysql.SysData;
 import org.apache.commons.lang.math.RandomUtils;
+import org.apache.ibatis.binding.MapperMethod;
+import org.apache.ibatis.builder.xml.XMLStatementBuilder;
+import org.apache.ibatis.mapping.MappedStatement;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +32,9 @@ public class SpringBootDemoApplicationTests {
 	}
 	@Test
 	public void test2() {
-
+//		MapperMethod.SqlCommand
+//		MappedStatement
+//		XMLStatementBuilder
 
 	}
 
