@@ -1,5 +1,6 @@
 package com.ydb.mybatistest.io;
 
+import com.ydb.mybatistest.pojo.Author;
 import com.ydb.mybatistest.pojo.Blog;
 import lombok.Data;
 import org.apache.ibatis.io.ResolverUtil;
@@ -54,9 +55,14 @@ public class ClassLoaderTest {
     }
 
     @Test
-    public void testResou() throws IOException {
+    public void testResources() throws IOException, ClassNotFoundException, IllegalAccessException, InstantiationException {
         Properties properties = Resources.getResourceAsProperties("mybatistest/jdbc.properties");
         System.out.println(properties);
+
+
+        Class<Author> clazz = (Class<Author>) Resources.classForName("com.ydb.mybatistest.pojo.Author");
+        Author author = (Author) clazz.newInstance();
+        System.out.println();
 
     }
 }

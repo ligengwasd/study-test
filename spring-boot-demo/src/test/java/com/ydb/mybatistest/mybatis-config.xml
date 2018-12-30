@@ -27,6 +27,22 @@
             <!--<property name="" value=""/>-->
         <!--</plugin>-->
     <!--</plugins>-->
+    
+    <!--<objectFactory type="">-->
+        <!--<property name="" value=""/>-->
+    <!--</objectFactory>-->
+    
+    
+    <!--<reflectorFactory type="">-->
+    <!--</reflectorFactory>-->
+    
+    <!--<objectWrapperFactory type="">-->
+        <!---->
+    <!--</objectWrapperFactory>-->
+    
+    <!--<settings>-->
+        <!--<setting name="" value=""/>-->
+    <!--</settings>-->
 
     <environments default="development">
         <environment id="development">
