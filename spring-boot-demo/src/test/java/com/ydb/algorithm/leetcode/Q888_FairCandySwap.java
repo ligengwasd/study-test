@@ -1,5 +1,9 @@
 package com.ydb.algorithm.leetcode;
 
+import java.io.InputStream;
+import java.util.HashSet;
+import java.util.stream.IntStream;
+
 /**
  * @Author ligeng
  * @Date 18/9/23
@@ -15,18 +19,11 @@ public class Q888_FairCandySwap {
     }
 
     public static int[] fairCandySwap(int[] A, int[] B) {
-        int sumA=0, sumB=0;
-        for (int a:A) {
-            sumA += a;
-        }
-        for (int b:B) {
-            sumB += b;
-        }
+        int dif = (IntStream.of(A).sum() - IntStream.of(B).sum())/2;
+        HashSet<Integer> S = new HashSet<>();
+        for (int a : A) S.add(a);
+        for (int b : B) if (S.contains(b + dif)) return new int[] {b + dif, b};
 
-//        int
-        if (sumA < sumB) {
-
-        }
-        return null;
+        return new int[0];
     }
 }
