@@ -11,17 +11,17 @@ public class Q2_AddTwoNumbers {
     @Test
     public void test() {
 
-        ListNode l1 = new ListNode(0);
-//        ListNode l11 = new ListNode(4);
-//        ListNode l111 = new ListNode(3);
-//        l1.next = l11;
-//        l11.next = l111;
+        ListNode l1 = new ListNode(2);
+        ListNode l11 = new ListNode(4);
+        ListNode l111 = new ListNode(3);
+        l1.next = l11;
+        l11.next = l111;
 
-        ListNode l2 = new ListNode(0);
-//        ListNode l22 = new ListNode(6);
-//        ListNode l222 = new ListNode(4);
-//        l2.next = l22;
-//        l22.next = l222;
+        ListNode l2 = new ListNode(5);
+        ListNode l22 = new ListNode(6);
+        ListNode l222 = new ListNode(4);
+        l2.next = l22;
+        l22.next = l222;
 
         System.out.println(list2Integer(l2));
         ListNode node = addTwoNumbers(l1, l2);
@@ -34,7 +34,7 @@ public class Q2_AddTwoNumbers {
 
         ListNode head = null;
         ListNode tail = null;
-        while (i>10) {
+        do {
             if (head == null) {
                 head = new ListNode(i%10);
                 tail = head;
@@ -44,8 +44,9 @@ public class Q2_AddTwoNumbers {
             tail.next = new ListNode(i%10);
             tail = tail.next;
             i = i/10;
-        }
-        if (tail != null) {
+        }while (i>10);
+
+        if (i != 0) {
             tail.next = new ListNode(i);
         }
         return head;
