@@ -10,29 +10,15 @@ import org.junit.Test;
 public class Q2_AddTwoNumbers {
     @Test
     public void test() {
-        System.out.println(Integer.MAX_VALUE);
 
-        ListNode l1 = array2List(new int[]{1,9,9,9,9,9,9,9,9,9});
-        ListNode l2 = array2List(new int[]{9});
+        ListNode l1 = array2List(new int[]{2,4,3});
+        ListNode l2 = array2List(new int[]{5,6,4});
 
-
-//        ListNode l1 = new ListNode(2);
-//        ListNode l11 = new ListNode(4);
-//        ListNode l111 = new ListNode(3);
-//        l1.next = l11;
-//        l11.next = l111;
-//
-//        ListNode l2 = new ListNode(5);
-//        ListNode l22 = new ListNode(6);
-//        ListNode l222 = new ListNode(4);
-//        l2.next = l22;
-//        l22.next = l222;
-//
-//        System.out.println(list2Integer(l2));
         ListNode node = addTwoNumbers(l1, l2);
         System.out.println(1);
 
     }
+
 
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         ListNode prev = new ListNode(0);
@@ -63,6 +49,8 @@ public class Q2_AddTwoNumbers {
         }
         return sum;
     }
+
+
 
     public ListNode array2List(int[] array) {
         ListNode head = null;
