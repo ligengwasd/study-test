@@ -14,6 +14,7 @@ public class Q2_AddTwoNumbers_2 {
         ListNode l1 = array2List(new int[]{2,4,3});
         ListNode l2 = array2List(new int[]{5,6,4});
 
+        this.addTwoNumbers(l1, l2);
     }
 
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
@@ -25,9 +26,10 @@ public class Q2_AddTwoNumbers_2 {
         ListNode fakeHead = tail;
 
         while (l1!=null && l2!=null) {
-            //(l1.val+l2.val)大于10，value1=1，表示下一次迭代要进一位。
-            value1 = (l1.val+l2.val+value1)/10;
+            // (l1.val+l2.val)大于10，value1=1，表示下一次迭代要进一位。
             value2 = (l1.val+l2.val+value1)%10;
+            // 重新计算value1
+            value1 = (l1.val+l2.val+value1)/10;
 
             tail.next = new ListNode(value2);
             l1 = l1.next;
