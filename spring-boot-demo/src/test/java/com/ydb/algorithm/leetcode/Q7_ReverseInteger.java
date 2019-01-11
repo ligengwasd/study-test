@@ -23,7 +23,7 @@ import java.util.List;
  Note:
  Assume we are dealing with an environment which could only hold integers within the 32-bit signed integer range. For the purpose of this problem, assume that your function returns 0 when the reversed integer overflows.
  */
-public class ReverseInteger {
+public class Q7_ReverseInteger {
     public static void main(String[] args) {
         System.out.println(isPalindrome2(12321));
     }
