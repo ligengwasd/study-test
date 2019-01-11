@@ -27,9 +27,10 @@ public class Q5_LongestPalindromicSubstring {
             left--;
             right++;
         }
-        if (maxLen < right-left-1) {
+        // right和left分别多在执行了一次递增和递减，要减去2
+        if (maxLen < right-left-2+1) {
             lo = left+1;
-            maxLen = right-left-1;
+            maxLen = right-left-2+1;
         }
     }
     private int lo, maxLen;
