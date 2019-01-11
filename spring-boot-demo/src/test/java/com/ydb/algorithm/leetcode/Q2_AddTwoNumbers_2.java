@@ -11,8 +11,8 @@ public class Q2_AddTwoNumbers_2 {
     @Test
     public void test() {
 
-        ListNode l1 = array2List(new int[]{2,4,3});
-        ListNode l2 = array2List(new int[]{5,6,4});
+        ListNode l1 = ListNode.array2List(new int[]{2,4,3});
+        ListNode l2 = ListNode.array2List(new int[]{5,6,4});
 
         this.addTwoNumbers(l1, l2);
     }
@@ -46,22 +46,5 @@ public class Q2_AddTwoNumbers_2 {
         }
 
         return fakeHead.next;
-    }
-
-
-
-    public ListNode array2List(int[] array) {
-        ListNode head = null;
-        ListNode tail = null;
-        for (int i:array) {
-            if (head == null) {
-                head = new ListNode(i);
-                tail = head;
-                continue;
-            }
-            tail.next = new ListNode(i);
-            tail = tail.next;
-        }
-        return head;
     }
 }

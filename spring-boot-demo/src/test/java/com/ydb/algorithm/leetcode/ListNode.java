@@ -16,4 +16,19 @@ public class ListNode {
         val = x;
         this.next = next;
     }
+
+    public static ListNode array2List(int[] array) {
+        ListNode head = null;
+        ListNode tail = null;
+        for (int i:array) {
+            if (head == null) {
+                head = new ListNode(i);
+                tail = head;
+                continue;
+            }
+            tail.next = new ListNode(i);
+            tail = tail.next;
+        }
+        return head;
+    }
 }
