@@ -2,7 +2,9 @@ package com.ydb.algorithm.leetcode;
 
 import org.junit.Test;
 
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -13,7 +15,22 @@ import java.util.Set;
 public class Q3_LongestSubstringWithoutRepeatingCharacters {
     @Test
     public void test() {
-        System.out.println(this.lengthOfLongestSubstring(" "));
+        System.out.println(this.lengthOfLongestSubstring2("pwwkew"));
+    }
+
+    public int lengthOfLongestSubstring2(String s) {
+        char[] chars = s.toCharArray();
+        int maxSubLength = 0;
+        Map<Character, Integer> map = new HashMap<>();
+
+        for (int left=-1, right=0; right<chars.length; right++) {
+            if (map.containsKey(chars[right]) && map.get(chars[right]) > left) {
+                left = map.get(chars[right]);
+            }
+            map.put(chars[right], right);
+            maxSubLength = Math.max(maxSubLength, right-left);
+        }
+        return maxSubLength;
     }
 
     public int lengthOfLongestSubstring(String s) {
