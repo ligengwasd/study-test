@@ -7,9 +7,9 @@ package com.ydb.algorithm.leetcode;
  * @Date 18/8/29
  * @Time 上午12:13
  */
-public class MaxSubArray {
+public class Q53_MaxSubArray {
     public static void main(String[] args) {
-        System.out.println(solution4(new int[]{-2,1}));
+        System.out.println(solution4(new int[]{-2,1,-3,4,-1,2,1,-5,4}));
     }
 
     /**
