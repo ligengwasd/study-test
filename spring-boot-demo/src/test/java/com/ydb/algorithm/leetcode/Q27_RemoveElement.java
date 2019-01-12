@@ -4,7 +4,7 @@ package com.ydb.algorithm.leetcode;
  * Created by ligeng on 18/1/11.
  * https://leetcode.com/problems/remove-element/description/
  */
-public class RemoveElement {
+public class Q27_RemoveElement {
     public static void main(String[] args) {
         int[] nums = {3,2,2,3};
         int val = 3;
