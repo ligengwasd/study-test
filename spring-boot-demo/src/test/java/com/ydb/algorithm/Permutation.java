@@ -30,6 +30,7 @@ public class Permutation {
     }
 
     public static void main(String[] args) {
+
         permutation(new char[]{'a','b','c'},0);
     }
 }
