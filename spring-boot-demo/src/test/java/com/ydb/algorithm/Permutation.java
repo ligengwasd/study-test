@@ -34,19 +34,19 @@ public class Permutation {
 
     @Test
     public void test() {
-        int[] array = new int[]{1,2,3};
+        int[] array = new int[]{1,2,3,4,5};
         int length = array.length;
         fullArray(array, 0, length - 1);
     }
 
-    private static void fullArray(int[] array, int cursor, int end) {
-        if (cursor == end) {
+    private static void fullArray(int[] array, int start, int end) {
+        if (start == end) {
             Util.print(array);
         } else {
-            for (int i = cursor; i <= end; i++) {
-                Util.swap(array, cursor, i);
-                fullArray(array, cursor + 1, end);
-                Util.swap(array, cursor, i);
+            for (int i = start; i <= end; i++) {
+                Util.swap(array, start, i);
+                fullArray(array, start + 1, end);
+                Util.swap(array, start, i);
             }
         }
     }
