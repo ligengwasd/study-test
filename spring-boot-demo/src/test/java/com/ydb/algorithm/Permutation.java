@@ -46,6 +46,7 @@ public class Permutation {
             for (int i = cursor; i <= end; i++) {
                 Util.swap(array, cursor, i);
                 fullArray(array, cursor + 1, end);
+                Util.swap(array, cursor, i);
             }
         }
     }
