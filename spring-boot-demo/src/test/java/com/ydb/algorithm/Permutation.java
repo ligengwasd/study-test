@@ -1,5 +1,7 @@
 package com.ydb.algorithm;
 
+import org.junit.Test;
+
 import java.util.Random;
 
 /**
@@ -9,7 +11,7 @@ import java.util.Random;
  */
 public class Permutation {
 
-    public static void permutation(char[]ss,int i){
+    public void permutation(char[]ss,int i){
         if(ss==null||i<0 ||i>ss.length){//1
             return;
         }
@@ -29,8 +31,10 @@ public class Permutation {
         }
     }
 
-    public static void main(String[] args) {
-
-        permutation(new char[]{'a','b','c'},0);
+    @Test
+    public void test(String[] args) {
+        permutation(new char[]{'a','b','c', 'd'},0);
     }
+
+
 }
