@@ -1,5 +1,6 @@
 package com.ydb.algorithm;
 
+import com.ydb.sort.Util;
 import org.junit.Test;
 
 import java.util.Random;
@@ -32,9 +33,20 @@ public class Permutation {
     }
 
     @Test
-    public void test(String[] args) {
-        permutation(new char[]{'a','b','c', 'd'},0);
+    public void test() {
+        int[] array = new int[]{1,2,3};
+        int length = array.length;
+        fullArray(array, 0, length - 1);
     }
 
-
+    private static void fullArray(int[] array, int cursor, int end) {
+        if (cursor == end) {
+            Util.print(array);
+        } else {
+            for (int i = cursor; i <= end; i++) {
+                Util.swap(array, cursor, i);
+                fullArray(array, cursor + 1, end);
+            }
+        }
+    }
 }
