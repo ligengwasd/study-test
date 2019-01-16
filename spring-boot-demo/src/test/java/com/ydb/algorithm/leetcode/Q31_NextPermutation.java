@@ -12,7 +12,7 @@ import java.util.Arrays;
 public class Q31_NextPermutation {
     @Test
     public void test() {
-        int[] array = new int[]{1,1,5};
+        int[] array = new int[]{1,5,1};
         nextPermutation(array);
         System.out.println(1);
     }
@@ -34,7 +34,7 @@ public class Q31_NextPermutation {
 
         int j=nums.length-1;
         while (j>i) {
-            if (nums[j] > nums[i-1] && nums[j] < nums[i]){
+            if (nums[j] > nums[i-1] && nums[j] <= nums[i]){
                 break;
             }
             j--;
