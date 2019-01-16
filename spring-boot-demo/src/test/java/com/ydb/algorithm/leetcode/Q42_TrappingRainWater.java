@@ -14,25 +14,33 @@ public class Q42_TrappingRainWater {
     }
 
     public int trap(int[] height) {
-        int sum=0 ,start=1;
-        for (int i=2; i<height.length-1;i++) {
-            if (height[i] < height[start]) {
-                continue;
-            } else {
-                if (height[i]>=height[start]) {
-                    sum += Math.min(height[i],height[start]) * (i-start-1);
-
-                    int temp=start+1;
-                    while (temp<i) {
-                        sum -= height[temp];
-                        temp++;
-                    }
-
-                    start = i;
-                }
+        int sum=0;
+        for (int i=0; i<height.length;i++) {
+            int rightHighest = rightHighest(height, i);
+            int leftHighest = leftHighest(height, i);
+            if (Math.min(rightHighest, leftHighest) > 0) {
+                int i1 = Math.min(rightHighest, leftHighest)-height[i];
+                sum += i1;
             }
         }
 
         return sum;
     }
+
+    public int rightHighest(int[] height, int i) {
+        int rightHighest = 0;
+        for (int right=height.length-1; right>i; right--) {
+            rightHighest = Math.max(height[right], rightHighest);
+        }
+        return rightHighest < height[i] ? 0 : rightHighest;
+    }
+
+    public int leftHighest(int[] height, int i) {
+        int leftHighest = 0;
+        for (int left=0; left<i; left++) {
+            leftHighest = Math.max(height[left], leftHighest);
+        }
+        return leftHighest < height[i] ? 0 : leftHighest;
+    }
+
 }
