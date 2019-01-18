@@ -32,68 +32,45 @@ public class Q37_SudokuSolver {
             array[height][width] = strArray[i-1].replace(" ","").charAt(0);
         }
 
-        System.out.println(containInBlock(array, 3,1,1));
-        System.out.println(containInCol(array, 3,1));
-        System.out.println(containInRow(array, 3,0));
-        System.out.println(1);
+        solveSudoku(array);
 
     }
 
     public void solveSudoku(char[][] board) {
-        for (int height=0; height<board.length; height++) {
-            for (int width=0; width<board[0].length; width++) {
-                if (".".equals(board[height][width]+"")) {
+        solve(board);
+    }
 
+    public boolean solve(char[][] board){
+        for(int i = 0; i < board.length; i++){
+            for(int j = 0; j < board[0].length; j++){
+                if(board[i][j] == '.'){
+                    for(char c = '1'; c <= '9'; c++){//trial. Try 1 through 9
+                        if(isValid(board, i, j, c)){
+                            board[i][j] = c; //Put c for this cell
 
-
+                            if(solve(board))
+                                return true; //If it's the solution return true
+                            else
+                                board[i][j] = '.'; //Otherwise go back
+                        }
+                    }
+                    return false;
                 }
             }
         }
+        return true;
     }
 
-    boolean findFirstEmptyPos(char[][] board, int pos[])
-    {
-        for (int i = 0; i < 9; i++)
-        {
-            for (int j = 0; j < 9; j++)
-            {
-                if (".".equals(board[i][j]+"")) {
-                    pos[0] = i;
-                    pos[1] = j;
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
 
-    public boolean containInBlock(char[][] board, int element, int row, int col) {
-        int i = row / 3;
-        int j = col / 3;
 
-        for (int height=i*3; height<i*3+3; height++) {
-            for (int width=j*3; width<j*3+3; width++) {
-                if (board[height][width] == (char)(element+48)) {
-                    return true;
-                }
-            }
+    private boolean isValid(char[][] board, int row, int col, char c){
+        for(int i = 0; i < 9; i++) {
+            if(board[i][col] != '.' && board[i][col] == c) return false; //check row
+            if(board[row][i] != '.' && board[row][i] == c) return false; //check column
+            if(board[3 * (row / 3) + i / 3][ 3 * (col / 3) + i % 3] != '.' &&
+                    board[3 * (row / 3) + i / 3][3 * (col / 3) + i % 3] == c) return false; //check 3*3 block
         }
-        return false;
-    }
-
-    public boolean containInCol(char[][] board, int element, int col) {
-        for (int i = 0; i < 9; i++) {
-            if (board[i][col] == (char)(element+48)) return true;
-        }
-        return false;
-    }
-
-    public boolean containInRow(char[][]  board, int element, int row)
-    {
-        for (int i = 0; i < 9; i++) {
-            if (board[row][i] == (char)(element+48)) return true;
-        }
-        return false;
+        return true;
     }
 
 
