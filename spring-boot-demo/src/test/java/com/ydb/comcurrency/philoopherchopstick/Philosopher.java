@@ -44,7 +44,7 @@ public class Philosopher implements Runnable{
                 left.drop();
             }
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            System.out.println("exit by interrupt");
         }
     }
 
@@ -54,7 +54,7 @@ public class Philosopher implements Runnable{
 
     public static void main(String[] args) throws InterruptedException {
         ExecutorService exec = Executors.newCachedThreadPool();
-        int size=5, ponder=5;
+        int size=5, ponder=0;
         Chopstick[] sticks = new Chopstick[5];
         for (int i=0; i<size; i++) {
             sticks[i] = new Chopstick();
@@ -62,9 +62,18 @@ public class Philosopher implements Runnable{
         for (int i=0; i<size; i++) {
             exec.execute(new Philosopher(sticks[i], sticks[(i+1)%size], i, ponder));
         }
+        // 最后一个哲学家，先拿右边的筷子，从而避免死锁。
+//        for (int i=0; i<size; i++) {
+//            if (i<size-1) {
+//                exec.execute(new Philosopher(sticks[i], sticks[(i+1)%size], i, ponder));
+//            } else {
+//                exec.execute(new Philosopher(sticks[0], sticks[i], i, ponder));
+//            }
+//        }
 
-        TimeUnit.SECONDS.sleep(5);
-        exec.shutdownNow();
+
+//        TimeUnit.SECONDS.sleep(5);
+//        exec.shutdownNow();
     }
 
 
