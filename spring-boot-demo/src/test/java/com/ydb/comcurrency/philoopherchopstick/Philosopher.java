@@ -1,6 +1,8 @@
 package com.ydb.comcurrency.philoopherchopstick;
 
 import java.util.Random;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -31,7 +33,7 @@ public class Philosopher implements Runnable{
     @Override
     public void run() {
         try {
-            while (Thread.interrupted()) {
+            while (!Thread.interrupted()) {
                 System.out.println("thinking...");
                 pause();
                 right.take();
@@ -50,8 +52,19 @@ public class Philosopher implements Runnable{
         return "Philosopher："+id;
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
+        ExecutorService exec = Executors.newCachedThreadPool();
+        int size=5, ponder=5;
+        Chopstick[] sticks = new Chopstick[5];
+        for (int i=0; i<size; i++) {
+            sticks[i] = new Chopstick();
+        }
+        for (int i=0; i<size; i++) {
+            exec.execute(new Philosopher(sticks[i], sticks[(i+1)%size], i, ponder));
+        }
 
+        TimeUnit.SECONDS.sleep(5);
+        exec.shutdownNow();
     }
 
 
