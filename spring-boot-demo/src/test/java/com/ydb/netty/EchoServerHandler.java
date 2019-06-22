@@ -25,6 +25,7 @@ public class EchoServerHandler extends ChannelInboundHandlerAdapter {
 
     @Override
     public void channelReadComplete(ChannelHandlerContext ctx) throws Exception {
+        System.out.println("channelReadComplete");
         ctx.writeAndFlush(Unpooled.EMPTY_BUFFER)//4
                 .addListener(ChannelFutureListener.CLOSE);
     }
