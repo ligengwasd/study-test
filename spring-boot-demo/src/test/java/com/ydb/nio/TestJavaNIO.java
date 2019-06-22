@@ -59,7 +59,7 @@ public class TestJavaNIO {
     }
 
     static void writeNIO() {
-        String filename = "out.txt";
+        String filename = "/Users/ligeng/Documents/source/study-test/spring-boot-demo/src/test/java/com/ydb/nio/out.txt";
         FileOutputStream fos = null;
         try {
 
@@ -152,7 +152,7 @@ public class TestJavaNIO {
 
     @SuppressWarnings("resource")
     public static void main(String[] args) {
-        testReadAndWriteNIO();
+        writeNIO();
     }
 
 }
