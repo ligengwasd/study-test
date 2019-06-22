@@ -1,10 +1,8 @@
 package com.ydb.nio;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.nio.ByteBuffer;
-import java.nio.CharBuffer;
 import java.nio.channels.FileChannel;
 
 /**
@@ -17,9 +15,9 @@ public class ChannelDemo {
         RandomAccessFile aFile = new RandomAccessFile("/Users/ligeng/Documents/source/study-test/spring-boot-demo/src/test/java/com/ydb/SpringBootDemoApplicationTests.java", "rw");
         FileChannel channel = aFile.getChannel();
 
+        ByteBuffer buffer = ByteBuffer.allocate(10);
         int read;
         do {
-            ByteBuffer buffer = ByteBuffer.allocate(10);
             read = channel.read(buffer);
             buffer.flip();
             while (buffer.hasRemaining()) {
