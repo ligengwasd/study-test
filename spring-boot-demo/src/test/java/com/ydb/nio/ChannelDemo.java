@@ -17,18 +17,16 @@ public class ChannelDemo {
         RandomAccessFile aFile = new RandomAccessFile("/Users/ligeng/Documents/source/study-test/spring-boot-demo/src/test/java/com/ydb/SpringBootDemoApplicationTests.java", "rw");
         FileChannel channel = aFile.getChannel();
 
-        ByteBuffer buffer = ByteBuffer.allocate(10);
-        int read = channel.read(buffer);
-
-        while (read != -1) {
-//            System.out.println("read:"+read);
+        int read;
+        do {
+            ByteBuffer buffer = ByteBuffer.allocate(10);
+            read = channel.read(buffer);
             buffer.flip();
             while (buffer.hasRemaining()) {
                 System.out.print((char) buffer.get());
             }
             buffer.clear();
-            read = channel.read(buffer);
-        }
+        } while (read != -1);
         aFile.close();
     }
 
