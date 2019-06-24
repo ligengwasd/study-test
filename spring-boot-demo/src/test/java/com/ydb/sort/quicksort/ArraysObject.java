@@ -1,4 +1,4 @@
-package com.ydb.sort;
+package com.ydb.sort.quicksort;
 
 import java.lang.reflect.Array;
 

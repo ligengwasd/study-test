@@ -1,4 +1,4 @@
-package com.ydb.sort;
+package com.ydb.sort.quicksort;
 
 public class ArraysPrimitive {
     private ArraysPrimitive() {}

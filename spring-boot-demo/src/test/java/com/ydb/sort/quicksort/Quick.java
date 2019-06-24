@@ -1,4 +1,4 @@
-package com.ydb.sort;
+package com.ydb.sort.quicksort;
 
 import static com.ydb.sort.Util.print;
 import static com.ydb.sort.Util.swap;
