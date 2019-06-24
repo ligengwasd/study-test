@@ -33,8 +33,7 @@ public class QuickSortDualPivot {
                 i++;//i先增加，首次运行pivot1就不会发生改变
                 Util.swap(A, i, k);
                 k++;
-            }else
-            if(A[k] >= pivot1 && A[k] <= pivot2){
+            }else if(A[k] >= pivot1 && A[k] <= pivot2){
                 k++;
             }else{
                 while(A[--j] > pivot2){//j先增减，首次运行pivot2就不会发生改变
