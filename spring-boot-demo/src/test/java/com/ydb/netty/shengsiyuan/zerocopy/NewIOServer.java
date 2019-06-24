@@ -31,6 +31,7 @@ public class NewIOServer {
             while (-1 != readCount) {
                 try {
                     readCount = socketChannel.read(byteBuffer);
+                    System.out.println(readCount);
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }

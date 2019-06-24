@@ -16,7 +16,7 @@ public class NewIOClient {
         socketChannel.connect(new InetSocketAddress("localhost", 8899));
         socketChannel.configureBlocking(true);
 
-        String fileName = "/Users/zhanglong/Desktop/spark-2.2.0-bin-hadoop2.7.tgz";
+        String fileName = "/Users/ligeng/Downloads/Artpaper_8420.dmg";
 
         FileChannel fileChannel = new FileInputStream(fileName).getChannel();
 
