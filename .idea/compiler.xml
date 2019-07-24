@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="flash-netty" />
         <module name="spring-boot-demo" />
         <module name="spring-boot-elasticsearch" />
         <module name="tcc-account" />
@@ -17,6 +18,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="flash-netty" target="1.8" />
       <module name="netty_lecture_main" target="1.8" />
       <module name="netty_lecture_test" target="1.8" />
       <module name="spring-boot-demo" target="1.8" />

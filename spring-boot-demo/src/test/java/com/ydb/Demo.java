@@ -5,7 +5,7 @@ package com.ydb;
  * @Date 19/6/7
  * @Time 上午10:05
  */
-public class Test {
+public class Demo {
     public static void main(String[] args) {
 
         int n=101-1;
