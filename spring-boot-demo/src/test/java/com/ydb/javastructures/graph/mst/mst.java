@@ -1,4 +1,4 @@
-package com.ydb.javastructures.graph;
+package com.ydb.javastructures.graph.mst;
 
 // mst.java
 // demonstrates minimum spanning tree
