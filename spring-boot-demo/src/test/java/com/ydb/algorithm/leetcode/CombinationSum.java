@@ -1,9 +1,6 @@
 package com.ydb.algorithm.leetcode;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 /**
  * @Author ligeng
@@ -13,28 +10,31 @@ import java.util.Set;
 public class CombinationSum {
     public static void main(String[] args) {
         CombinationSum solution = new CombinationSum();
-        List<List<Integer>> lists = solution.combinationSum2(new int[]{10,1,2,7,6,1,5}, 8);
+        List<List<Integer>> lists = solution.combinationSum(new int[]{10,1,2,7,6,1,5}, 8);
+
         System.out.println(1);
     }
 
-    public List<List<Integer>> combinationSum2(int[] candidates, int target) {
-        List<List<Integer>> res = new ArrayList<>();
-        dfs(new ArrayList<>(), candidates, target, res, 0);
-        return res;
+    public List<List<Integer>> combinationSum(int[] nums, int target) {
+        Arrays.sort(nums);
+        List<List<Integer>> result = new ArrayList<>(); // 最终结果
+        List<Integer> path = new ArrayList<>(); // 中间结果
+        dfs(nums, path, result, target, 0);
+        return result;
     }
 
-    public void dfs(List<Integer> path, int[] candidates, int gap, List<List<Integer>> res, int start) {
+    private static void dfs(int[] nums, List<Integer> path,
+                            List<List<Integer>> result, int gap, int start) {
         if (gap == 0) {  // 找到一个合法解
-            res.add(new ArrayList<Integer>(path));
+            result.add(new ArrayList<Integer>(path));
             return;
         }
+        for (int i = start; i < nums.length; i++) { // 扩展状态
+            if (gap < nums[i]) return; // 剪枝
 
-        for (int i=start; i<candidates.length; i++) {
-            if (candidates[i] <= gap) {
-                path.add(candidates[i]);
-                dfs(path, candidates, gap-candidates[i], res, i+1);
-                path.remove(path.size()-1);
-            }
+            path.add(nums[i]); // 执行扩展动作
+            dfs(nums, path, result, gap - nums[i], i);
+            path.remove(path.size() - 1);  // 撤销动作
         }
     }
 }
