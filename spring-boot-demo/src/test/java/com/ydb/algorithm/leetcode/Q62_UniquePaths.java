@@ -10,10 +10,14 @@ import java.util.Arrays;
 public class Q62_UniquePaths {
     public static void main(String[] args) {
         System.out.println(uniquePaths(7,3));
+        System.out.println(uniquePaths3(7,3));
     }
 
 
-
+    public static int uniquePaths3(int m, int n) {
+        if (m==1 || n==1) return 1;
+        return uniquePaths3(m-1, n) + uniquePaths3(m,n-1);
+    }
 
 
     // 状态转移方程：
