@@ -12,7 +12,7 @@ import java.util.List;
 public class Q78_Subsets {
     public static void main(String[] args) {
         Q78_Subsets subsets = new Q78_Subsets();
-        List<List<Integer>> list = subsets.subsets2(new int[]{1, 2, 3});
+        List<List<Integer>> list = subsets.subsets3(new int[]{1, 2, 3});
         System.out.println(1);
     }
 
@@ -70,18 +70,3 @@ public class Q78_Subsets {
     }
 
 }
-
-//class Solution {
-//    public:
-//    vector<vector<int> > subsets(vector<int> &S) {
-//        sort (S.begin(), S.end());
-//        int elem_num = S.size();
-//        int subset_num = pow (2, elem_num);
-//        vector<vector<int> > subset_set (subset_num, vector<int>());
-//        for (int i = 0; i < elem_num; i++)
-//            for (int j = 0; j < subset_num; j++)
-//                if ((j >> i) & 1)
-//                    subset_set[j].push_back (S[i]);
-//        return subset_set;
-//    }
-//};
