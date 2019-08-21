@@ -7,9 +7,29 @@ public class SearchInsert {
     public static void main(String[] args) {
         int[] nums = {1,3,5,6};
         int val = 4;
-        Solution solution = new Solution();
-        System.out.println(solution.searchInsert(nums,val));
+        SearchInsert solution = new SearchInsert();
+        System.out.println(solution.searchInsert(nums, val));
+
+//        Solution solution = new Solution();
+//        System.out.println(solution.searchInsert(nums,val));
     }
+
+    public int searchInsert(int[] nums, int target) {
+        return search(nums, 0, nums.length-1, target);
+    }
+
+    private int search(int[] nums, int first, int last, int target) {
+        while (first<last) {
+            int mid = first + (last-first)/2;
+            if (target < nums[mid]) {
+                last = mid;
+            } else {
+                first = mid+1;
+            }
+        }
+        return first;
+    }
+
 
     static class Solution {
         public int searchInsert(int[] nums, int target) {
