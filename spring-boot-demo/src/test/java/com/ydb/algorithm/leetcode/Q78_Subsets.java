@@ -45,9 +45,9 @@ public class Q78_Subsets {
             res.add(new ArrayList<>(path));
             return;
         }
-        // 不选
+        // 不选nums[step]
         dfs(res, path, nums, step + 1);
-
+        // 选nums[step]
         path.add(nums[step]);
         dfs(res, path, nums, step + 1);
         path.remove(new Integer(nums[step]));
