@@ -15,21 +15,15 @@ public class SearchInsert {
     }
 
     public int searchInsert(int[] nums, int target) {
-        return search(nums, 0, nums.length-1, target);
-    }
-
-    private int search(int[] nums, int first, int last, int target) {
-        while (first<last) {
-            int mid = first + (last-first)/2;
-            if (target < nums[mid]) {
-                last = mid;
-            } else {
-                first = mid+1;
-            }
+        int l=0, r=nums.length-1;
+        while (l<=r) {
+            int mid = (l+r)/2;
+            if (target == nums[mid]) return mid;
+            if (target < nums[mid]) r = mid-1;
+            if (target > nums[mid]) l = mid+1;
         }
-        return first;
+        return l;
     }
-
 
     static class Solution {
         public int searchInsert(int[] nums, int target) {
