@@ -13,7 +13,7 @@ public class SearchRotatedSortedArray {
 
     public int search(int[] nums, int target) {
         int first = 0, last = nums.length;
-        while (first != last) {
+        while (first < last) {
             final int mid = first + (last - first) / 2;
             if (nums[mid] == target)
                 return mid;
