@@ -27,6 +27,8 @@ public class Apple {
 
     public static void main(String[] args) {
         filter(new ArrayList<>(), Apple::isGreen);
+        filter(new ArrayList<>(), (Apple a)-> "green".equals(a.color));
+
     }
 
     public static List<Apple> filter(List<Apple> list, Predicate<Apple> p) {
