@@ -3,7 +3,10 @@ package com.ydb.jdk8.demo;
 import lombok.Data;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
+import java.util.function.IntPredicate;
 import java.util.function.Predicate;
 
 /**
@@ -26,8 +29,20 @@ public class Apple {
     }
 
     public static void main(String[] args) {
-        filter(new ArrayList<>(), Apple::isGreen);
-        filter(new ArrayList<>(), (Apple a)-> "green".equals(a.color));
+        List<Apple> list = new ArrayList<>();
+
+        filter(list, Apple::isGreen);
+        filter(list, (Apple a)-> "green".equals(a.color));
+
+        list.sort(Comparator.comparing(Apple::getWeight));
+
+        List<String> str = Arrays.asList("a", "b");
+        str.sort((s1, s2)->s1.compareTo(s2));
+        str.sort(String::compareTo);
+
+        int j= 10;
+        IntPredicate p = (i) -> i>j;
+//        j=100;
 
     }
 
