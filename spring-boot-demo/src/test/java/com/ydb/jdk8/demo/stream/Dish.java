@@ -57,6 +57,14 @@ public class Dish {
                 }
         )));
         System.out.println(mapMap);
+        // 按子组收集数据
+        Map<Type, Long> longMap = menu.stream().collect(Collectors.groupingBy(Dish::getType, Collectors.counting()));
+        System.out.println("按子组收集数据:"+longMap);
+//        Map<Dish.Type, Optional<Dish>> mostCaloricByType =
+//                menu.stream()
+//                        .collect(groupingBy(Dish::getType,
+//                                maxBy(comparingInt(Dish::getCalories))));
+
 
     }
 }
