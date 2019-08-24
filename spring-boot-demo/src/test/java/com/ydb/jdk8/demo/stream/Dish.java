@@ -1,9 +1,12 @@
 package com.ydb.jdk8.demo.stream;
 
 import lombok.Data;
+import org.springframework.data.mongodb.core.mapreduce.GroupBy;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 /**
  * @Author ligeng
@@ -35,8 +38,25 @@ public class Dish {
                 new Dish("season fruit", true, 120, Dish.Type.OTHER),
                 new Dish("pizza", true, 550, Dish.Type.OTHER),
                 new Dish("prawns", false, 300, Dish.Type.FISH),
-                new Dish("salmon", false, 450, Dish.Type.FISH) );
+                new Dish("salmon", false, 450, Dish.Type.FISH));
 
+        List<String> collect = menu.stream().filter(m -> m.getCalories() > 300)
+                .map(Dish::getName)
+                .limit(3)
+                .collect(Collectors.toList());
+
+        // 返回calories最大的
+        menu.stream().collect(Collectors.maxBy(Comparator.comparing(Dish::getCalories)));
+        // 分组
+        Map<Type, List<Dish>> map = menu.stream().collect(Collectors.groupingBy(Dish::getType));
+        // 多级分组
+        Map<Type, Map<Integer, List<Dish>>> mapMap = menu.stream().collect(Collectors.groupingBy(Dish::getType, Collectors.groupingBy(
+                dish -> {
+                    if (dish.getCalories() <= 400) return 0;
+                    else return 1;
+                }
+        )));
+        System.out.println(mapMap);
 
     }
 }
