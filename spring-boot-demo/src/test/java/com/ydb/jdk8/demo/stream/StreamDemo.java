@@ -23,14 +23,38 @@ public class StreamDemo {
                 new Dish("salmon", false, 450, Dish.Type.FISH));
 
 
-//        --------------------------------------过滤器--------------------------------------
+        //--------------------------------------过滤器--------------------------------------
         menu.stream().filter(Dish::isVegetarian);
         menu.stream().distinct();
-//        -------------------------------------- 切片 --------------------------------------
+        //-------------------------------------- 切片 --------------------------------------
         menu.stream().limit(0).skip(0);
-//        --------------------------------------映射器--------------------------------------
+        //--------------------------------------映射器--------------------------------------
         menu.stream().map(Dish::getName).collect(toList());
-//        --------------------------------------收集器--------------------------------------
+        // 扁平化，就是把内部的数组展开
+        List<List<Integer>> list = new ArrayList<>();
+        list.add(new ArrayList<Integer>(){{
+            add(1);
+            add(2);
+        }});
+        list.add(new ArrayList<Integer>(){{
+            add(3);
+            add(4);
+        }});
+        List<Integer> integers = list.stream().flatMap(x -> x.stream()).collect(toList());
+        System.out.println(integers);
+        //--------------------------------------查找--------------------------------------
+        menu.stream().findAny();
+        menu.stream().findFirst();
+        menu.stream().allMatch(Dish::isVegetarian);
+        menu.stream().anyMatch(Dish::isVegetarian);
+        //----------------------------求和，最大值，最小值------------------------------------
+        menu.stream().map(Dish::getCalories).reduce(1, Integer::sum);
+        menu.stream().map(Dish::getCalories).max(Integer::compareTo);//最大值
+        menu.stream().map(Dish::getCalories).reduce(Integer::max);//最大值
+        menu.stream().map(Dish::getCalories).min(Integer::compareTo);
+        //--------------------------------------计数--------------------------------------
+        menu.stream().count();
+        //--------------------------------------收集器--------------------------------------
         // toCollection()
         menu.stream().collect(toCollection(ArrayList::new));
         // counting()
