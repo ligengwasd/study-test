@@ -23,7 +23,13 @@ public class StreamDemo {
                 new Dish("salmon", false, 450, Dish.Type.FISH));
 
 
-
+//        --------------------------------------过滤器--------------------------------------
+        menu.stream().filter(Dish::isVegetarian);
+        menu.stream().distinct();
+//        -------------------------------------- 切片 --------------------------------------
+        menu.stream().limit(0).skip(0);
+//        --------------------------------------映射器--------------------------------------
+        menu.stream().map(Dish::getName).collect(toList());
 //        --------------------------------------收集器--------------------------------------
         // toCollection()
         menu.stream().collect(toCollection(ArrayList::new));
