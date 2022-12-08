@@ -194,6 +194,10 @@ class Tree {
                 System.out.print("\nPostorder traversal: ");
                 postOrder(root);
                 break;
+            case 4:
+                System.out.print("\nLayerOrder traversal: ");
+                layerOrder(root);
+                break;
         }
         System.out.println();
     }
@@ -222,6 +226,21 @@ class Tree {
             postOrder(localRoot.leftChild);
             postOrder(localRoot.rightChild);
             System.out.print(localRoot.iData + " ");
+        }
+    }
+
+    private void layerOrder(Node root) {
+        LinkedList<Node> q = new LinkedList<>();
+        q.add(root);
+        while (!q.isEmpty()) {
+            Node cur = q.pop();
+            cur.displayNode();
+            if (cur.leftChild != null) {
+                q.add(cur.leftChild);
+            }
+            if (cur.rightChild != null) {
+                q.add(cur.rightChild);
+            }
         }
     }
 
@@ -323,7 +342,7 @@ class TreeApp {
                     System.out.print(value + '\n');
                     break;
                 case 't':
-                    System.out.print("Enter type 1, 2 or 3: ");
+                    System.out.print("Enter type 1, 2 ,3 or 4: ");
                     value = getInt();
                     theTree.traverse(value);
                     break;
