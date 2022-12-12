@@ -188,7 +188,7 @@ class Tree {
                 break;
             case 2:
                 System.out.print("\nInorder traversal:  ");
-                inOrder(root);
+                inOrder2(root);
                 break;
             case 3:
                 System.out.print("\nPostorder traversal: ");
@@ -238,7 +238,32 @@ class Tree {
         }
     }
 
-    // -------------------------------------------------------------
+    /**
+     * 中序遍历无递归
+     * @param localRoot
+     *
+     * 有bug
+     */
+    private void inOrder2(Node localRoot) {
+        Stack<Node> stack = new Stack<>();
+        Node cur = localRoot;
+        while (!stack.isEmpty()) {
+            while (cur != null && cur.leftChild != null) {
+                stack.push(cur.leftChild);
+                cur = cur.leftChild;
+            }
+            cur = stack.pop();
+            if (cur != null) {
+                System.out.println(cur.iData);
+                if (cur.rightChild != null) {
+                    stack.push(cur.rightChild);
+                    cur = cur.rightChild;
+                }
+            }
+        }
+    }
+
+        // -------------------------------------------------------------
     private void postOrder(Node localRoot) {
         if (localRoot != null) {
             postOrder(localRoot.leftChild);
