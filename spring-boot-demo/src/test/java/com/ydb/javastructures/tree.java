@@ -247,7 +247,7 @@ class Tree {
     private void inOrder2(Node localRoot) {
         Stack<Node> stack = new Stack<>();
         Node cur = localRoot;
-        while (!stack.isEmpty()) {
+        while (cur != null || !stack.isEmpty()) {
             while (cur != null && cur.leftChild != null) {
                 stack.push(cur.leftChild);
                 cur = cur.leftChild;
