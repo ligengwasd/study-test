@@ -184,7 +184,7 @@ class Tree {
         switch (traverseType) {
             case 1:
                 System.out.print("\nPreorder traversal: ");
-                preOrder(root);
+                preOrder2(root);
                 break;
             case 2:
                 System.out.print("\nInorder traversal:  ");
@@ -210,6 +210,23 @@ class Tree {
             preOrder(localRoot.rightChild);
         }
     }
+
+    /**
+     * 前序遍历，无递归
+     * @param localRoot
+     */
+    private void preOrder2(Node localRoot) {
+        Stack<Node> stack = new Stack<>();
+        stack.push(localRoot);
+        while (!stack.isEmpty()) {
+            Node cur = stack.pop();
+            System.out.println(cur.iData);
+            if (cur.rightChild != null) stack.push(cur.rightChild);
+            if (cur.leftChild != null) stack.push(cur.leftChild);
+        }
+    }
+
+
 
     // -------------------------------------------------------------
     private void inOrder(Node localRoot) {
