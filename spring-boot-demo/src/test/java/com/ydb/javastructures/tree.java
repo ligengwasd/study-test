@@ -212,7 +212,8 @@ class Tree {
     }
 
     /**
-     * 前序遍历，无递归
+     * 前序遍历，无递归  根 -> 左 -> 右
+     * 后续遍历可以用双端队列先构造成 根 -> 右 -> 左的队列，然后反向弹出来。
      * @param localRoot
      */
     private void preOrder2(Node localRoot) {
