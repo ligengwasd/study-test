@@ -1,5 +1,7 @@
 package com.ydb.algorithm.leetcode;
 
+import com.google.gson.Gson;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -12,7 +14,10 @@ import java.util.List;
 public class Q78_Subsets {
     public static void main(String[] args) {
         Q78_Subsets subsets = new Q78_Subsets();
-        List<List<Integer>> list = subsets.subsets3(new int[]{1, 2, 3});
+        List<List<Integer>> list = subsets.subsets(new int[]{1, 2, 3});
+        list.stream().forEach(
+                o -> System.out.println(new Gson().toJson(o))
+        );
         System.out.println(1);
     }
 
@@ -20,12 +25,16 @@ public class Q78_Subsets {
     public List<List<Integer>> subsets(int[] nums) {
         List<List<Integer>> result = new ArrayList<>();
         result.add(new ArrayList<>());
-        for (int n : nums) {
+
+        // 每新增一个元素，就遍历result，在原来result上组装新的元素，然后压入result。
+        for (int i=0; i<=nums.length-1; i++) {
             int size = result.size();
-            for (int i = 0; i < size; i++) {
-                List<Integer> subset = new ArrayList<>(result.get(i));
-                subset.add(n);
-                result.add(subset);
+            for (int j = 0; j<= size -1; j++) {
+                List<Integer> originItem = result.get(j);
+                ArrayList<Integer> newItem = new ArrayList<Integer>();
+                newItem.addAll(originItem);
+                newItem.add(nums[i]);
+                result.add(newItem);
             }
         }
         return result;
