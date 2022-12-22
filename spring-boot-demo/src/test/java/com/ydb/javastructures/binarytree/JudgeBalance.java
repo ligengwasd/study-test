@@ -1,5 +1,8 @@
 package com.ydb.javastructures.binarytree;
 
+/**
+ * 判断是否是平衡树
+ */
 public class JudgeBalance {
 
     public static boolean isBalance(Node root) {
