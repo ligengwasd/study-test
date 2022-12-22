@@ -14,7 +14,7 @@ public class IsSymmetric {
         if (leftTree.iData!=rightTree.iData){
             return false;
         }
-        return isSymmetricChild(leftTree.leftChild,rightTree.leftChild)&&isSymmetricChild(leftTree.rightChild,rightTree.leftChild);
+        return isSymmetricChild(leftTree.leftChild,rightTree.rightChild)&&isSymmetricChild(leftTree.rightChild,rightTree.leftChild);
     }
     public boolean isSymmetric(Node root) {
         if (root==null){
