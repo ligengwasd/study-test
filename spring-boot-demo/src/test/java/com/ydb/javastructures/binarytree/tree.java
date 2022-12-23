@@ -173,6 +173,7 @@ class Tree {
             case 2:
                 System.out.print("\nInorder traversal:  ");
                 inOrder2(root);
+                inOrder(root);
                 break;
             case 3:
                 System.out.print("\nPostorder traversal: ");
@@ -232,17 +233,14 @@ class Tree {
         Stack<Node> stack = new Stack<>();
         Node cur = localRoot;
         while (cur != null || !stack.isEmpty()) {
-            while (cur != null && cur.leftChild != null) {
-                stack.push(cur.leftChild);
+            while (cur != null) {
+                stack.push(cur);
                 cur = cur.leftChild;
             }
-            cur = stack.pop();
-            if (cur != null) {
+            if (!stack.isEmpty()) {
+                cur = stack.pop();
                 System.out.println(cur.iData);
-                if (cur.rightChild != null) {
-                    stack.push(cur.rightChild);
-                    cur = cur.rightChild;
-                }
+                cur = cur.rightChild;
             }
         }
     }
