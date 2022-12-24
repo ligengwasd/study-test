@@ -1,4 +1,6 @@
-package com.ydb.algorithm.leetcode;
+package com.ydb.algorithm.essentials.dfs;
+
+import com.google.gson.Gson;
 
 import java.util.*;
 
@@ -12,7 +14,7 @@ public class CombinationSum {
         CombinationSum solution = new CombinationSum();
         List<List<Integer>> lists = solution.combinationSum(new int[]{10,1,2,7,6,1,5}, 8);
 
-        System.out.println(1);
+        System.out.println(new Gson().toJson(lists));
     }
 
     public List<List<Integer>> combinationSum(int[] nums, int target) {
