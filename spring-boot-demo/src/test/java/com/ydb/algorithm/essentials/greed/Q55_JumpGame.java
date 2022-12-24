@@ -1,4 +1,4 @@
-package com.ydb.algorithm.leetcode;
+package com.ydb.algorithm.essentials.greed;
 
 /**
  * 解释：对于节点i，有两种选择，经过节点i和不经过节点i
