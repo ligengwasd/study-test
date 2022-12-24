@@ -8,6 +8,7 @@ package com.ydb.algorithm.essentials.devide;
 public class Pow {
     public static void main(String[] args) {
         Pow solution = new Pow();
+        System.out.println(solution.myPow(2,5));
     }
 
     public double myPow(double x, int n) {
