@@ -9,8 +9,8 @@ public class UniqueBinarySearchTrees {
         f[1] = 1;
 
         for (int i=2; i<=n; i++) {
-            for (int j = 1; j<=i; j++) {
-                f[i] = f[i] + f[j-1]*f[i-j];
+            for (int j =0; j<i; j++) {
+                f[i] = f[i] + f[j]*f[i-j-1];
             }
         }
         System.out.println(f[n]);
