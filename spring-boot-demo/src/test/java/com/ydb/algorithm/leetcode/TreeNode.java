@@ -14,7 +14,7 @@ public class TreeNode {
 
 
     TreeNode() {}
-    TreeNode(Integer x) { val = x; }
+    public TreeNode(Integer x) { val = x; }
 
     public String toString() {
         return val+"";
