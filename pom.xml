@@ -10,13 +10,6 @@
 
     <modules>
         <module>spring-boot-demo</module>
-        <module>tcc-order</module>
-        <module>tcc-account</module>
-        <module>tcc-eureka</module>
-        <module>tcc-zuul</module>
-        <module>tcc-config</module>
-        <module>tcc-turbine</module>
-        <module>spring-boot-elasticsearch</module>
 	</modules>
 
 </project>
