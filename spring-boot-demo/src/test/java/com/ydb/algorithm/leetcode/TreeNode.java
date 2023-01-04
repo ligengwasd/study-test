@@ -8,9 +8,9 @@ import com.ydb.sort.Tree;
  * @Time 下午3:52
  */
 public class TreeNode {
-    Integer val;
-    TreeNode left;
-    TreeNode right;
+    public Integer val;
+    public TreeNode left;
+    public TreeNode right;
 
 
     TreeNode() {}
