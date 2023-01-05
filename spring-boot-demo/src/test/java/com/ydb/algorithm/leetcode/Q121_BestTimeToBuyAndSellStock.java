@@ -17,6 +17,8 @@ public class Q121_BestTimeToBuyAndSellStock {
         int res=0;
         for (int i:prices) {
             minPriceBeforeHere = Math.min(minPriceBeforeHere, i);
+            // res表示第i步之前卖出的最大获利；
+            // i-minPriceBeforeHere表示在第i步卖出的获利。
             res = Math.max(res, i-minPriceBeforeHere);
         }
         return res;
