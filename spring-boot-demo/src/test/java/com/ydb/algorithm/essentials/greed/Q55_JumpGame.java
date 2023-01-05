@@ -7,7 +7,7 @@ public class Q55_JumpGame {
     public static boolean canJump(int[] nums) {
         int reach=0;// 表示从第i步出发能到达的最远距离
         for (int i=0; i<nums.length-1; i++) {
-            if (reach < i) {//从第i-1步出发能到的最远距离小于i，说明走不到第i步。返回false。
+            if (reach < i) {//前面能到的最远距离小于i，说明走不到第i步。返回false。
                 return false;
             }
             if (reach < nums[i] + i) {
