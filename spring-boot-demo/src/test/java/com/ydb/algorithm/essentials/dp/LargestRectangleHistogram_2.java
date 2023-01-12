@@ -15,6 +15,7 @@ public class LargestRectangleHistogram_2 {
             // 当第i个元素小于栈顶元素时，计算以栈顶元素为高的矩形面积
             while (!stack.isEmpty() && tmp[i] < tmp[stack.peek()]) {
                 int currHeight = tmp[stack.pop()];
+                // 宽度计算：元素i比栈顶元素小，栈顶元素的前一个元素是离栈顶元素最近的比它小的元素。
                 maxArea = Math.max(maxArea, currHeight * (i - stack.peek()-1));
             }
             stack.push(i);
