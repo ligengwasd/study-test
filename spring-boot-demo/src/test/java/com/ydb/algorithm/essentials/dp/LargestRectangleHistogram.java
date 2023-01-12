@@ -1,4 +1,4 @@
-package com.ydb.algorithm.leetcode;
+package com.ydb.algorithm.essentials.dp;
 
 /**
  * 答案：https://www.cnblogs.com/grandyang/p/4322653.html
