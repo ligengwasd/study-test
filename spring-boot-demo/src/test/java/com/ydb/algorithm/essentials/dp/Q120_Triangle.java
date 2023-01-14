@@ -1,4 +1,4 @@
-package com.ydb.algorithm.leetcode;
+package com.ydb.algorithm.essentials.dp;
 
 import java.util.ArrayList;
 import java.util.Arrays;
