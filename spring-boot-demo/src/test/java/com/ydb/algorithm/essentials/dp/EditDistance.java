@@ -2,7 +2,8 @@ package com.ydb.algorithm.essentials.dp;
 
 public class EditDistance {
     public static void main(String[] args) {
-
+        EditDistance editDistance = new EditDistance();
+        System.out.println(editDistance.minDistance("horse", "ros"));
     }
     public int minDistance(String word1, String word2) {
         int n = word1.length();
