@@ -1,4 +1,4 @@
-package com.ydb.javastructures.binarytree;// tree.java
+package com.ydb.algorithm.essentials.binarytree;// tree.java
 // demonstrates binary tree
 // to run this program: C>java TreeApp
 

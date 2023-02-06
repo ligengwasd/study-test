@@ -1,4 +1,4 @@
-package com.ydb.javastructures.binarytree;
+package com.ydb.algorithm.essentials.binarytree;
 
 /**
  * 很简单的思路就是看两个值在root的哪边：

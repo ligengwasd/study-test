@@ -1,4 +1,4 @@
-package com.ydb.javastructures.binarytree;
+package com.ydb.algorithm.essentials.binarytree;
 
 /**
  * 判断是否是平衡树

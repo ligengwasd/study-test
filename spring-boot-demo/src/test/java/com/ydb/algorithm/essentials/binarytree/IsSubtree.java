@@ -1,4 +1,4 @@
-package com.ydb.javastructures.binarytree;
+package com.ydb.algorithm.essentials.binarytree;
 
 /**
  * 判断一棵树是否是另一棵树的子树

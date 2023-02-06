@@ -1,4 +1,4 @@
-package com.ydb.javastructures.binarytree;
+package com.ydb.algorithm.essentials.binarytree;
 
 
 ////////////////////////////////////////////////////////////////
