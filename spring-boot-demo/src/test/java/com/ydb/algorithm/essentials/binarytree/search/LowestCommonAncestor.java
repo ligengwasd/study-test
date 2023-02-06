@@ -1,4 +1,6 @@
-package com.ydb.algorithm.essentials.binarytree;
+package com.ydb.algorithm.essentials.binarytree.search;
+
+import com.ydb.algorithm.essentials.binarytree.Node;
 
 /**
  * 很简单的思路就是看两个值在root的哪边：

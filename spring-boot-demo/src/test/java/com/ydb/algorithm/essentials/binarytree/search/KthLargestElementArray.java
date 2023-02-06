@@ -1,7 +1,4 @@
-package com.ydb.algorithm.leetcode;
-
-import java.util.PriorityQueue;
-import java.util.concurrent.PriorityBlockingQueue;
+package com.ydb.algorithm.essentials.binarytree.search;
 
 /**
  * @Author ligeng
