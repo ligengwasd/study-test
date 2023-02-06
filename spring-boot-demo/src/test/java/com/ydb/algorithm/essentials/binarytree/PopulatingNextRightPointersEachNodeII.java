@@ -24,8 +24,8 @@ public class PopulatingNextRightPointersEachNodeII {
                     }
                     prev = right;
                 }
-                root = next;
             }
+            root = next;
         }
     }
 }
