@@ -1,4 +1,4 @@
-package com.ydb.algorithm.leetcode;
+package com.ydb.algorithm.essentials.binarytree.traverse;
 
 import org.junit.Test;
 
