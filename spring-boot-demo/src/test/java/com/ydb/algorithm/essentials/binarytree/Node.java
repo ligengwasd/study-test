@@ -2,7 +2,7 @@ package com.ydb.algorithm.essentials.binarytree;
 
 
 ////////////////////////////////////////////////////////////////
-class Node {
+public class Node {
     public int iData;              // data item (key)
     public double dData;           // data item
     public Node leftChild;         // this node's left child

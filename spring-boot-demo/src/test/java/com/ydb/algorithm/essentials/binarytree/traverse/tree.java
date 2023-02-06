@@ -1,7 +1,9 @@
-package com.ydb.algorithm.essentials.binarytree;// tree.java
+package com.ydb.algorithm.essentials.binarytree.traverse;// tree.java
 // demonstrates binary tree
 // to run this program: C>java TreeApp
 
+
+import com.ydb.algorithm.essentials.binarytree.Node;
 
 import java.io.*;
 import java.util.*;               // for Stack class

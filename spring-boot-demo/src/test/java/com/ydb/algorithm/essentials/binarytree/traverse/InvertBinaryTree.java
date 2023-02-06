@@ -1,4 +1,4 @@
-package com.ydb.algorithm.essentials.binarytree;
+package com.ydb.algorithm.essentials.binarytree.traverse;
 
 import com.ydb.algorithm.leetcode.TreeNode;
 import com.ydb.sort.Tree;
