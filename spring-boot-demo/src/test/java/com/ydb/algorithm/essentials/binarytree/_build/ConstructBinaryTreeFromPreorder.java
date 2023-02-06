@@ -25,7 +25,7 @@ public class ConstructBinaryTreeFromPreorder {
         // 创建根节点
         TreeNode root = new TreeNode(preorder[rootPreorderIndex]);
         // 根节点在中序数组中的位置
-        int inOrderIndex = findInorderIndex(inorder, start, end, preorder[rootPreorderIndex]);
+        int inOrderIndex = findInorderIndex(inorder, start, end, root.val);
         // 根节点左侧的节点长度，即左子树的节点数
         int leftTreeSize = inOrderIndex - start;
         // 前序：根->左->右，所以根节点的下一个节点就是该根节点的左节点。左节点作为左子树的根节点，继续搜索。
