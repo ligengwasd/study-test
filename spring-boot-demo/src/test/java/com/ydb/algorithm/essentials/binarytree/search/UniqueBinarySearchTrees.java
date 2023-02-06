@@ -8,6 +8,8 @@ public class UniqueBinarySearchTrees {
         f[0] = 1;
         f[1] = 1;
 
+        // i：表示总节点数
+        // j：表示树的左节点数
         for (int i=2; i<=n; i++) {
             for (int j =0; j<i; j++) {
                 f[i] = f[i] + f[j]*f[i-j-1];
