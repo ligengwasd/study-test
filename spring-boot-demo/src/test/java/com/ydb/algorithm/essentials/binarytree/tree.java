@@ -295,6 +295,8 @@ class Tree {
             result.add(level);
             // 走到这里current肯定是空的，直接用next覆盖即可
             current = next;
+            // next置空
+            next = new LinkedList<>();
         }
         return result;
     }
