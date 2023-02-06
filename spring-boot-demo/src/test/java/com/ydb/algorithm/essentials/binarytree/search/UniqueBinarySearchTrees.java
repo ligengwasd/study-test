@@ -1,4 +1,4 @@
-package com.ydb.algorithm.essentials.binarytree;
+package com.ydb.algorithm.essentials.binarytree.search;
 
 public class UniqueBinarySearchTrees {
     public static void main(String[] args) {
