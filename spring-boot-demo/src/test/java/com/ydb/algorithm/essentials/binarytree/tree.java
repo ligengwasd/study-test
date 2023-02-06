@@ -293,7 +293,7 @@ class Tree {
                 if (poll.rightChild != null) next.add(poll.rightChild);
             }
             result.add(level);
-
+            // 交换
             Queue<Node> temp = current;
             current = next;
             next = temp;
