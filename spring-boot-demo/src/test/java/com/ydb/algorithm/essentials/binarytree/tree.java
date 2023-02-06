@@ -293,10 +293,8 @@ class Tree {
                 if (poll.rightChild != null) next.add(poll.rightChild);
             }
             result.add(level);
-            // 交换
-            Queue<Node> temp = current;
+            // 走到这里current肯定是空的，直接用next覆盖即可
             current = next;
-            next = temp;
         }
         return result;
     }
