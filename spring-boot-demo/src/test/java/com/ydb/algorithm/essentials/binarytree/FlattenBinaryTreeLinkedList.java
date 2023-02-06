@@ -24,11 +24,11 @@ public class FlattenBinaryTreeLinkedList {
         root.right = root.left;
         // 3.左节点置空
         root.left = null;
-        // 4.
+        // 4.root指针移到最右的节点上
         while(root.right != null){
             root = root.right;
         }
-        // 5.
+        // 5.老的右子树挂到最右的节点上
         root.right = oldRight;
     }
 }
