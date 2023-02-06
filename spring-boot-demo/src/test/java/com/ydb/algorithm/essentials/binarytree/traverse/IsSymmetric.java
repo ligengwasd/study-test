@@ -1,4 +1,6 @@
-package com.ydb.algorithm.essentials.binarytree;
+package com.ydb.algorithm.essentials.binarytree.traverse;
+
+import com.ydb.algorithm.essentials.binarytree.Node;
 
 /**
  * 判断是否是对称二叉树
