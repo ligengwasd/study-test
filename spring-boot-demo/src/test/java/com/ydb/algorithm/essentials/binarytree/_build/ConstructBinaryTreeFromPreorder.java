@@ -13,7 +13,7 @@ public class ConstructBinaryTreeFromPreorder {
     /**
      * @param preorder
      * @param inorder
-     * @param rootPreorderIndex
+     * @param rootPreorderIndex 前序数组，根节点的下标
      * @param start  中序数组里的开始位置
      * @param end  中序数组里的结束位置
      * @return
