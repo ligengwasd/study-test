@@ -275,6 +275,32 @@ class Tree {
         }
     }
 
+    /**
+     * 使用两个队列实现
+     * @param root
+     */
+    private List<List<Node>> layerOrder2(Node root) {
+        List<List<Node>> result = new ArrayList<>();
+        Queue<Node> current = new LinkedList<>();
+        Queue<Node> next = new LinkedList<>();
+        current.add(root);
+        while (!current.isEmpty()) {
+            List<Node> level = new ArrayList<>();
+            while (!current.isEmpty()) {
+                Node poll = current.poll();
+                level.add(poll);
+                if (poll.leftChild != null) next.add(poll.leftChild);
+                if (poll.rightChild != null) next.add(poll.rightChild);
+            }
+            result.add(level);
+
+            Queue<Node> temp = current;
+            current = next;
+            next = temp;
+        }
+        return result;
+    }
+
     // -------------------------------------------------------------
     public void displayTree() {
         Stack globalStack = new Stack();
