@@ -1,4 +1,6 @@
-package com.ydb.algorithm.essentials.binarytree;
+package com.ydb.algorithm.essentials.binarytree.recursion;
+
+import com.ydb.algorithm.essentials.binarytree.Node;
 
 public class MaxDeep {
     public static Integer getMaxDeep(Node node) {
