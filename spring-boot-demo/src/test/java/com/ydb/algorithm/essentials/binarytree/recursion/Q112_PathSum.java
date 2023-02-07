@@ -1,4 +1,6 @@
-package com.ydb.algorithm.leetcode;
+package com.ydb.algorithm.essentials.binarytree.recursion;
+
+import com.ydb.algorithm.leetcode.TreeNode;
 
 import java.util.LinkedList;
 import java.util.Queue;
