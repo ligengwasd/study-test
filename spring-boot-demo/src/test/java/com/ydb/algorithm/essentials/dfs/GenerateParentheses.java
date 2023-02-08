@@ -23,7 +23,9 @@ public class GenerateParentheses {
     private static void generate(int n, StringBuilder path, List<String> result, int l, int r) {
         if (l == n) {
             StringBuilder sb = new StringBuilder(path);
-            for (int i = 0; i < n - r; ++i) sb.append(')');
+            for (int i = 0; i < n - r; ++i) {
+                sb.append(')');
+            }
             result.add(sb.toString());
             return;
         }
