@@ -37,7 +37,7 @@ public class CombinationSum {
             path.add(nums[i]); // 执行扩展动作
             dfs(nums, path, result, gap - nums[i], i);
             path.remove(path.size() - 1);  // 撤销动作
-            // 自己的理解，添加元素和调用DFS是一对一的操作，所以只需要撤销一次。
+            // 自己的理解，每次添加元素和都只调用一次DFS，所以只需要撤销一次。
         }
     }
 }
