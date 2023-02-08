@@ -44,8 +44,6 @@ public class PathSumII {
         path.add(root.val);
         if (root.left != null) {
             helper(res, root.left, path, sum - root.val);
-            // 回退，因为在刚刚调用helper的时候在helper里面把root.left添加到了path里
-//            path.remove(path.size() - 1);
         }
         if (root.right != null) {
             helper(res, root.right, path, sum - root.val);
