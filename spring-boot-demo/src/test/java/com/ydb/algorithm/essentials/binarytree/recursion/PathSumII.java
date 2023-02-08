@@ -44,15 +44,10 @@ public class PathSumII {
         path.add(root.val);
         if (root.left != null) {
             helper(res, root.left, path, sum - root.val);
-            if (!path.isEmpty()) {
-                path.remove(path.size() - 1);
-            }
         }
         if (root.right != null) {
             helper(res, root.right, path, sum - root.val);
-            if (!path.isEmpty()) {
-                path.remove(path.size() - 1);
-            }
         }
+        path.remove(path.size() - 1);
     }
 }
