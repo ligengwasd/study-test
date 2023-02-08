@@ -1,5 +1,6 @@
 package com.ydb.algorithm.essentials.binarytree.recursion;
 
+import com.google.gson.Gson;
 import com.ydb.algorithm.leetcode.TreeNode;
 
 import java.util.ArrayList;
@@ -18,7 +19,7 @@ public class PathSumII {
 
         PathSumII pathSumII = new PathSumII();
         List<List<Integer>> lists = pathSumII.pathSum(treeNode1, 7);
-        System.out.println(1);
+        System.out.println(new Gson().toJson(lists));
     }
 
     public List<List<Integer>> pathSum(TreeNode root, int sum) {
@@ -44,11 +45,11 @@ public class PathSumII {
         if (root.left != null) {
             helper(res, root.left, path, sum - root.val);
             // 回退，因为在刚刚调用helper的时候在helper里面把root.left添加到了path里
-            path.remove(path.size() - 1);
+//            path.remove(path.size() - 1);
         }
         if (root.right != null) {
             helper(res, root.right, path, sum - root.val);
-            path.remove(path.size() - 1);//
         }
+        path.remove(path.size() - 1);
     }
 }
