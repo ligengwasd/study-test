@@ -41,8 +41,14 @@ public class PathSumII {
         }
         //recursion rule: non-leaf
         path.add(root.val);
-        if (root.left != null) helper(res, root.left, path, sum - root.val);
-        if (root.right != null) helper(res, root.right, path, sum - root.val);
-        path.remove(path.size() - 1);// left和right不会同时为空，所以只需要退出一个就行了
+        if (root.left != null) {
+            helper(res, root.left, path, sum - root.val);
+            // 回退，
+            path.remove(path.size() - 1);
+        }
+        if (root.right != null) {
+            helper(res, root.right, path, sum - root.val);
+            path.remove(path.size() - 1);//
+        }
     }
 }
