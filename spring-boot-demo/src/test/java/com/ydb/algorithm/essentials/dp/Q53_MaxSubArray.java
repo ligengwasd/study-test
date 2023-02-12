@@ -1,4 +1,4 @@
-package com.ydb.algorithm.leetcode;
+package com.ydb.algorithm.essentials.dp;
 
 /**
  * https://leetcode.com/problems/maximum-subarray/description/
