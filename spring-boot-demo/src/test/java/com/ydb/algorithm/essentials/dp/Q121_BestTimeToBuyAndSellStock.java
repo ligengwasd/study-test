@@ -1,4 +1,4 @@
-package com.ydb.algorithm.leetcode;
+package com.ydb.algorithm.essentials.dp;
 
 /**
  * 通用解法地址：
