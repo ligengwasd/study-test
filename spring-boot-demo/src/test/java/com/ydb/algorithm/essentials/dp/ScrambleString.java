@@ -50,34 +50,31 @@ public class ScrambleString {
      * @return
      */
     public boolean isScramble_2(String s1, String s2) {
-        if(s1==null || s2==null || s1.length()!=s2.length()) {
+        if(s1==null || s2==null || s1.length()!=s2.length())
             return false;
-        }
-        if(s1.length()==0) {
+        if(s1.length()==0)
             return true;
-        }
-        boolean[][][] dp = new boolean[s1.length()][s2.length()][s1.length()+1];
-
-        //initial state
-        for(int i = 0; i < s1.length(); i++){
-            for(int j = 0; j < s2.length(); j++){
-                dp[i][j][1] = s1.charAt(i)==s2.charAt(j);
+        boolean[][][] res = new boolean[s1.length()][s2.length()][s1.length()+1];
+        for(int i=0;i<s1.length();i++)
+        {
+            for(int j=0;j<s2.length();j++)
+            {
+                res[i][j][1] = s1.charAt(i)==s2.charAt(j);
             }
         }
-        //state transfer
-        for(int k = 2; k <= s1.length(); k++){
-            for(int i = 0; i+k-1 < s1.length(); i++){
-                for(int j = 0; j+k-1 < s1.length(); j++){
-                    for(int split = 1; split < k; split++){
-                        //如果dp[i][j][split] = true && dp[i+split][j+split][k-split] = true 或者 dp[i][j+k-split][split]=true && dp[i+split][j][k-split]=true，那么dp[i][j][k]=true
-                        if((dp[i][j][split] && dp[i+split][j+split][k-split]) || (dp[i][j+k-split][split] && dp[i+split][j][k-split])){
-                            dp[i][j][k] = true;
-                            break;
-                        }
+        for(int len=2;len<=s1.length();len++)
+        {
+            for(int i=0;i<s1.length()-len+1;i++)
+            {
+                for(int j=0;j<s2.length()-len+1;j++)
+                {
+                    for(int k=1;k<len;k++)
+                    {
+                        res[i][j][len] |= res[i][j][k]&&res[i+k][j+k][len-k] || res[i][j+len-k][k]&&res[i+k][j][len-k];
                     }
                 }
             }
         }
-        return dp[0][0][s1.length()];
+        return res[0][0][s1.length()];
     }
 }
