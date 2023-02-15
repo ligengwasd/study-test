@@ -42,4 +42,38 @@ public class ScrambleString {
         }
         return false;
     }
+
+    /**
+     * 备忘录、动态规划 解法：https://blog.csdn.net/linhuanmars/article/details/24506703
+     * @param s1
+     * @param s2
+     * @return
+     */
+    public boolean isScramble_2(String s1, String s2) {
+        if(s1==null || s2==null || s1.length()!=s2.length()) {
+            return false;
+        }
+        if(s1.length()==0) {
+            return true;
+        }
+        boolean[][][] dp = new boolean[s1.length()][s2.length()][s1.length()+1];
+        for (int len = 1; len <= s1.length(); len++) {
+            for (int i=0; i<=s1.length()-len; i++) {
+                for (int j=0; j<=s1.length()-len; j++) {
+                    if (len == 1) {
+                        dp[i][j][len] = (s1.charAt(i) == s2.charAt(i));
+                    } else {
+                        for (int k = 1; k < len; ++k) {
+                            if ((dp[i][j][k] && dp[i + k][j + k][len - k]) || (dp[i + k][j][len - k] && dp[i][j + len - k][k])) {
+                                dp[i][j][len] = true;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return dp[0][0][s1.length()];
+
+
+    }
 }
