@@ -57,23 +57,27 @@ public class ScrambleString {
             return true;
         }
         boolean[][][] dp = new boolean[s1.length()][s2.length()][s1.length()+1];
-        for (int len = 1; len <= s1.length(); len++) {
-            for (int i=0; i<=s1.length()-len; i++) {
-                for (int j=0; j<=s1.length()-len; j++) {
-                    if (len == 1) {
-                        dp[i][j][len] = (s1.charAt(i) == s2.charAt(i));
-                    } else {
-                        for (int k = 1; k < len; ++k) {
-                            if ((dp[i][j][k] && dp[i + k][j + k][len - k]) || (dp[i + k][j][len - k] && dp[i][j + len - k][k])) {
-                                dp[i][j][len] = true;
-                            }
+
+        //initial state
+        for(int i = 0; i < s1.length(); i++){
+            for(int j = 0; j < s2.length(); j++){
+                dp[i][j][1] = s1.charAt(i)==s2.charAt(j);
+            }
+        }
+        //state transfer
+        for(int k = 2; k <= s1.length(); k++){
+            for(int i = 0; i+k-1 < s1.length(); i++){
+                for(int j = 0; j+k-1 < s1.length(); j++){
+                    for(int split = 1; split < k; split++){
+                        //如果dp[i][j][split] = true && dp[i+split][j+split][k-split] = true 或者 dp[i][j+k-split][split]=true && dp[i+split][j][k-split]=true，那么dp[i][j][k]=true
+                        if((dp[i][j][split] && dp[i+split][j+split][k-split]) || (dp[i][j+k-split][split] && dp[i+split][j][k-split])){
+                            dp[i][j][k] = true;
+                            break;
                         }
                     }
                 }
             }
         }
         return dp[0][0][s1.length()];
-
-
     }
 }
