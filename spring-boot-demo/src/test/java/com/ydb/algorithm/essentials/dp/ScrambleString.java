@@ -66,6 +66,9 @@ public class ScrambleString {
                     if (k == 0) {
                         dp[i][j][k] = s1.charAt(i) == s2.charAt(j);
                     } else {
+                        // dp[i][j][k]表示，s1以i开始长度为k的字符串A，和s2以j开始长度为k的字符串B是否是Scramble的：
+                        // 判断A和B是否Scramble：
+                        //      遍历字符串A的每一个切割点，只要能找到一个切割点，证明AB是Scramble的就行了
                         for (int l=0; l<k && !dp[i][j][k]; l++) {
                             dp[i][j][k] = dp[i][j][l] && dp[i+l+1][j+l+1][k-l-1] ||
                                     dp[i][j+k-l][l] && dp[i+l+1][j][k-l-1];
