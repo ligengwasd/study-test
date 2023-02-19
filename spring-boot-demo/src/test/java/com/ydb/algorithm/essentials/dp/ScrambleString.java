@@ -3,7 +3,7 @@ package com.ydb.algorithm.essentials.dp;
 public class ScrambleString {
     public static void main(String[] args) {
         ScrambleString scrambleString = new ScrambleString();
-        System.out.println(scrambleString.isScramble("rgeat", "great"));
+        System.out.println(scrambleString.isScramble("eatrg", "great"));
     }
 
 
@@ -54,31 +54,26 @@ public class ScrambleString {
      * @return
      */
     public boolean isScramble_2(String s1, String s2) {
-        if(s1==null || s2==null || s1.length()!=s2.length())
+        if (s1.length() != s2.length()) {
             return false;
-        if(s1.length()==0)
-            return true;
-        boolean[][][] res = new boolean[s1.length()][s2.length()][s1.length()+1];
-        for(int i=0;i<s1.length();i++)
-        {
-            for(int j=0;j<s2.length();j++)
-            {
-                res[i][j][1] = s1.charAt(i)==s2.charAt(j);
-            }
         }
-        for(int len=2;len<=s1.length();len++)
-        {
-            for(int i=0;i<s1.length()-len+1;i++)
-            {
-                for(int j=0;j<s2.length()-len+1;j++)
-                {
-                    for(int k=1;k<len;k++)
-                    {
-                        res[i][j][len] |= res[i][j][k]&&res[i+k][j+k][len-k] || res[i][j+len-k][k]&&res[i+k][j][len-k];
+        int len = s1.length();
+        boolean[][][] dp = new boolean[len][len][len];
+        // dp[i][j][k-1] == true: s1[i:i+k] is scramble of s2[j:j+k]
+        for (int k=0; k<len; k++) {
+            for (int i=0; i+k<len; i++) {
+                for (int j=0; j+k<len; j++) {
+                    if (k == 0) {
+                        dp[i][j][k] = s1.charAt(i) == s2.charAt(j);
+                    } else {
+                        for (int l=0; l<k && !dp[i][j][k]; l++) {
+                            dp[i][j][k] = dp[i][j][l] && dp[i+l+1][j+l+1][k-l-1] ||
+                                    dp[i][j+k-l][l] && dp[i+l+1][j][k-l-1];
+                        }
                     }
                 }
             }
         }
-        return res[0][0][s1.length()];
+        return dp[0][0][len-1];
     }
 }
