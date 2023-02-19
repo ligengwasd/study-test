@@ -1,6 +1,10 @@
 package com.ydb.algorithm.essentials.dp;
 
 public class ScrambleString {
+    public static void main(String[] args) {
+        ScrambleString scrambleString = new ScrambleString();
+        System.out.println(scrambleString.isScramble("rgeat", "great"));
+    }
 
 
     /**
@@ -36,7 +40,7 @@ public class ScrambleString {
             }
             c1 = s2.substring(0, s2.length()-i);
             c2 = s2.substring(s2.length()-i);
-            if (isScramble(b1, c1) && isScramble(b2, c2)) {
+            if (isScramble(b1, c2) && isScramble(b2, c1)) {
                 return true;
             }
         }
