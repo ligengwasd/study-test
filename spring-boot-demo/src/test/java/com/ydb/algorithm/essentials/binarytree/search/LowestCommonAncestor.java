@@ -7,6 +7,9 @@ import com.ydb.algorithm.essentials.binarytree.Node;
  * 两个值都在左边，则LCA在左边
  * 两个值都在右边，则LCA在右边
  * 一个在左一个在右，则说明LCA就是当前的root节点。
+ *
+ * 类似题目
+ * https://cloud.tencent.com/developer/article/1875014
  */
 public class LowestCommonAncestor {
 
