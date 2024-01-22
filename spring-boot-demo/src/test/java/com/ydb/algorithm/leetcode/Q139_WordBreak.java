@@ -11,6 +11,9 @@ public class Q139_WordBreak {
     }
 
     boolean res = false;
+    // -------------------------------------动态规划--------------------------------------------
+
+    // -------------------------------------回溯算法--------------------------------------------
     boolean wordBreak(String s, List<String> wordDict) {
         wordBreakInner(s, wordDict, 0);
         return res;
