@@ -29,6 +29,10 @@ public class EditDistance {
     }
     // 递归解法，方便理解
     public int minDistance2(String word1, int i, String word2, int j) {
+        if (i<0)
+            return j; // i的元素不够，需要新增
+        if (j<0)
+            return i; // i的元素有多余，需要删除
         if (word1.charAt(i) == word2.charAt(j)) {
             return minDistance2(word1, i-1, word2, j-1);
         }
