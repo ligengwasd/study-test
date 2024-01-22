@@ -1,8 +1,11 @@
 package com.ydb.algorithm.leetcode;
 
+import com.google.gson.Gson;
+import org.apache.commons.lang3.BooleanUtils;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -12,31 +15,24 @@ import java.util.List;
  * @Time 下午8:49
  */
 public class Q46_Permutations {
-    public List<List<Integer>> permute(int[] nums) {
-        List<List<Integer>> res = new ArrayList<>();
-        fullArray(nums, 0, nums.length-1, res);
-        return res;
+    public static void main(String[] args) {
+        Q46_Permutations q = new Q46_Permutations();
+        q.traverse(new int[]{1,2,3}, new LinkedList<>(), new Boolean[3]);
     }
 
-    private void fullArray(int[] array, int start, int end,List<List<Integer>> res ) {
-        if (start == end) {
-            List<Integer> list = new ArrayList<>();
-            for (int k:array) {
-                list.add(k);
-            }
-            res.add(list);
-        } else {
-            for (int i = start; i <= end; i++) {
-                swap(array, start, i);
-                fullArray(array, start + 1, end, res);
-                swap(array, start, i);
-            }
+    List<LinkedList<Integer>> res = new ArrayList<>();
+    public void traverse(int[] nums, LinkedList<Integer> path, Boolean[] used) {
+        if (path.size() == nums.length) {
+            System.out.println(new Gson().toJson(path));
+            res.add(new LinkedList<>(path));
         }
-    }
-
-    public void swap(int s[], int i, int j) {
-        int temp = s[i];
-        s[i] = s[j];
-        s[j] = temp;
+        for (int i=0 ; i< nums.length; i++) {
+            if (BooleanUtils.isTrue(used[i])) continue;
+            path.add(nums[i]);
+            used[i] = true;
+            traverse(nums, path, used);
+            path.removeLast();
+            used[i] = false;
+        }
     }
 }
