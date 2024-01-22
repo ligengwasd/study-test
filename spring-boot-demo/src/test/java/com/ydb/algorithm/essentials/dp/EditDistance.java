@@ -27,4 +27,14 @@ public class EditDistance {
         }
         return dp[n][m];
     }
+    // 递归解法，方便理解
+    public int minDistance2(String word1, int i, String word2, int j) {
+        if (word1.charAt(i) == word2.charAt(j)) {
+            return minDistance2(word1, i-1, word2, j-1);
+        }
+        return Math.min(
+                Math.min(minDistance2(word1, i, word2, j-1), minDistance2(word1, i-1, word2, j)),
+                minDistance2(word1, i-1, word2, j-1)
+        ) + 1;
+    }
 }
