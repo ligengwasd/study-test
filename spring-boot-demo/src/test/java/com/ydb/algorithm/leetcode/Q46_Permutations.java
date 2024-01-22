@@ -25,6 +25,7 @@ public class Q46_Permutations {
         if (path.size() == nums.length) {
             System.out.println(new Gson().toJson(path));
             res.add(new LinkedList<>(path));
+            return;
         }
         for (int i=0 ; i< nums.length; i++) {
             if (BooleanUtils.isTrue(used[i])) continue;
