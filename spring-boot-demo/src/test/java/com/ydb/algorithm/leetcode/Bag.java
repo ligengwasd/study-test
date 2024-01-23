@@ -1,5 +1,7 @@
 package com.ydb.algorithm.leetcode;
 
+import com.google.gson.Gson;
+
 import java.util.Arrays;
 
 /**
@@ -8,13 +10,11 @@ import java.util.Arrays;
 public class Bag {
     public static void main(String[] args) {
         Bag bag = new Bag();
-        int knapsack = bag.knapsack(new int[]{2, 1, 3}, new int[]{4, 2, 3});
+        int knapsack = bag.knapsack(4, 3, new int[]{2, 1, 3}, new int[]{4, 2, 3});
         System.out.println(knapsack);
     }
 
-    int knapsack(int[] wt, int[] val) {
-        int W = wt.length;
-        int N = val.length;
+    int knapsack(int W, int N, int[] wt, int[] val) {
         // base case 已初始化
         int[][] dp = new int[N + 1][W + 1];
         for (int i = 1; i <= N; i++) {
