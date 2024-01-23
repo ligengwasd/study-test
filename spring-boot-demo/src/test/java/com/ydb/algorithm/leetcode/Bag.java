@@ -7,6 +7,7 @@ import java.util.Arrays;
 /**
  * https://labuladong.gitee.io/algo/di-er-zhan-a01c6/bei-bao-le-34bd4/jing-dian--28f3c/
  * https://xie.infoq.cn/article/9cd9d6868446f8a7e1950bbb0
+ * 看不懂的话，用笔画一画矩阵图
  */
 public class Bag {
     public static void main(String[] args) {
