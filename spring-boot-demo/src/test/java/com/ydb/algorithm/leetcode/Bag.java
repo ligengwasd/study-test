@@ -50,6 +50,14 @@ public class Bag {
         return dp[I-1][W];
     }
 
+    /**
+     * 回溯算法，肯定能算出来
+     * @param wt
+     * @param val
+     * @param maxWeight
+     * @param curr
+     * @param selected
+     */
     void knapsack(int[] wt, int[] val, int maxWeight, int curr, boolean[] selected) {
         if (maxWeight <= 0 || curr >= wt.length) {
             // 计算结果
