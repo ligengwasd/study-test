@@ -6,6 +6,7 @@ import java.util.Arrays;
 
 /**
  * https://labuladong.gitee.io/algo/di-er-zhan-a01c6/bei-bao-le-34bd4/jing-dian--28f3c/
+ * https://xie.infoq.cn/article/9cd9d6868446f8a7e1950bbb0
  */
 public class Bag {
     public static void main(String[] args) {
@@ -14,10 +15,10 @@ public class Bag {
         System.out.println(knapsack);
     }
 
-    int knapsack(int W, int N, int[] wt, int[] val) {
+    int knapsack(int W, int v, int[] wt, int[] val) {
         // base case 已初始化
-        int[][] dp = new int[N + 1][W + 1];
-        for (int i = 1; i <= N; i++) {
+        int[][] dp = new int[v + 1][W + 1];
+        for (int i = 1; i <= v; i++) {
             for (int w = 1; w <= W; w++) {
                 if (w - wt[i - 1] < 0) {
                     // 这种情况下只能选择不装入背包
@@ -32,7 +33,7 @@ public class Bag {
             }
         }
 
-        return dp[N][W];
+        return dp[v][W];
     }
 
     void knapsack(int[] wt, int[] val, int maxWeight, int curr, boolean[] selected) {
