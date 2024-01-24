@@ -18,15 +18,15 @@ public class Q752_OpenLock {
             minCount = Math.min(minCount, count);
         }
         // 数字变大
-        bfs(i == 9 ? 0 : i++, j, k, l, count + 1);
-        bfs(i, j == 9 ? 0 : j++, k, l, count + 1);
-        bfs(i, j, k == 9 ? 0 : k++, l, count + 1);
-        bfs(i, j, k, l == 9 ? 0 : l++, count + 1);
+        bfs(i == 9 ? 0 : i+1, j, k, l, count + 1);
+        bfs(i, j == 9 ? 0 : j+1, k, l, count + 1);
+        bfs(i, j, k == 9 ? 0 : k+1, l, count + 1);
+        bfs(i, j, k, l == 9 ? 0 : l+1, count + 1);
         // 数字变小
-        bfs(i == 0 ? 9 : i++, j, k, l, count + 1);
-        bfs(i, j == 0 ? 9 : j++, k, l, count + 1);
-        bfs(i, j, k == 0 ? 9 : k++, l, count + 1);
-        bfs(i, j, k, l == 0 ? 9 : l++, count + 1);
+        bfs(i == 0 ? 9 : i+1, j, k, l, count + 1);
+        bfs(i, j == 0 ? 9 : j+1, k, l, count + 1);
+        bfs(i, j, k == 0 ? 9 : k+1, l, count + 1);
+        bfs(i, j, k, l == 0 ? 9 : l+1, count + 1);
     }
 
 }
