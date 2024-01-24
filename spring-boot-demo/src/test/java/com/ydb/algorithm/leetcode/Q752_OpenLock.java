@@ -16,6 +16,7 @@ public class Q752_OpenLock {
         }
         if (target.equals(path)) {
             minCount = Math.min(minCount, count);
+            return;
         }
         // 数字变大
         bfs(i == 9 ? 0 : i+1, j, k, l, count + 1);
