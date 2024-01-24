@@ -75,7 +75,7 @@ public class Q37_SudokuSolver {
             return backtrack(board, i+1, 0);
         }
         if (i == board.length) {
-            // 遍历完了，说明找到了结果，如果找到下面会返回false
+            // 遍历完了，说明找到了结果，如果找不到本方法最后一行会返回false
             return true;
         }
         if(board[i][j] != '.'){
