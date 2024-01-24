@@ -22,6 +22,11 @@ public class Q752_OpenLock {
         bfs(i, j == 9 ? 0 : j++, k, l, count + 1);
         bfs(i, j, k == 9 ? 0 : k++, l, count + 1);
         bfs(i, j, k, l == 9 ? 0 : l++, count + 1);
+        // 数字变小
+        bfs(i == 0 ? 9 : i++, j, k, l, count + 1);
+        bfs(i, j == 0 ? 9 : j++, k, l, count + 1);
+        bfs(i, j, k == 0 ? 9 : k++, l, count + 1);
+        bfs(i, j, k, l == 0 ? 9 : l++, count + 1);
     }
 
 }
