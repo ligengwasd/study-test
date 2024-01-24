@@ -1,8 +1,10 @@
 package com.ydb.algorithm.leetcode;
 
+import com.google.gson.Gson;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -19,19 +21,28 @@ public class Q22_GenerateParentheses {
 
     public List<String> generateParenthesis(int n) {
         List<String> res = new ArrayList<>();
-        generateParenthesisDFS(0,0, "",res, n);
+        backtrack(0 ,0, new LinkedList<>(), n);
         return res;
     }
-    void generateParenthesisDFS(int left, int right, String out, List<String> res, int n) {
+
+    void backtrack(int left, int right, LinkedList<String> path, int n) {
         if (right == n) {
-            res.add(out);
+            System.out.println(new Gson().toJson(path));
         }
+
         if (left < n) {
-            generateParenthesisDFS(left+1, right, out+"(", res, n);
+            path.add("(");
+            backtrack(left+ 1, right, path, n);
+            path.removeLast();
         }
-        if (right < left) {
-            generateParenthesisDFS(left, right+1, out+")", res, n);
+
+        if (left > right) {
+            path.add(")");
+            backtrack(left, right+ 1, path, n);
+            path.removeLast();
         }
 
     }
+
+
 }
