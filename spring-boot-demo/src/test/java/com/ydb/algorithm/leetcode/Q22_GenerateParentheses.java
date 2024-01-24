@@ -28,6 +28,7 @@ public class Q22_GenerateParentheses {
     void backtrack(int left, int right, LinkedList<String> path, int n) {
         if (right == n) {
             System.out.println(new Gson().toJson(path));
+            return;
         }
 
         if (left < n) {
