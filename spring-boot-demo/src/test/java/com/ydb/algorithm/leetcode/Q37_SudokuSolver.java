@@ -61,6 +61,41 @@ public class Q37_SudokuSolver {
         return true;
     }
 
+    /**
+     * 回溯
+     * 这种解法比较容易理解
+     * @param board
+     * @param i
+     * @param j
+     * @return
+     */
+    public boolean backtrack(char[][] board, int i, int j) {
+        if (j == board[0].length) {
+            // 换行
+            return backtrack(board, i+1, 0);
+        }
+        if (i == board.length) {
+            // 遍历完了，说明找到了结果，如果找到下面会返回false
+            return true;
+        }
+        if(board[i][j] != '.'){
+            // 原位置是预置字符，遍历下一个字符
+            return backtrack(board, i, j+1);
+        }
+        for(char c = '1'; c <= '9'; c++){
+            if (!isValid(board, i, j, c)) {
+                continue;
+            }
+            board[i][j] = c;
+            boolean backtrack = backtrack(board, i, j + 1);
+            if (backtrack) {
+                return true;
+            }
+            board[i][j] = '.';
+        }
+        return false;
+    }
+
 
 
     private boolean isValid(char[][] board, int row, int col, char c){
