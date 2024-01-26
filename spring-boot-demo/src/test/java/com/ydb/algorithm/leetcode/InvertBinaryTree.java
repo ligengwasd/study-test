@@ -31,4 +31,15 @@ public class InvertBinaryTree {
 
         return root;
     }
+
+    public void invertTree2(TreeNode root) {
+        if (root == null) {
+            return;
+        }
+        TreeNode temp = root.left;
+        root.left = root.right;
+        root.right = temp;
+        invertTree2(root.left);
+        invertTree2(root.right);
+    }
 }
