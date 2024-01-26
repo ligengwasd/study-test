@@ -111,37 +111,6 @@ public class Tree {
                 curr=curr.right;
             }
         }
-
-        /**
-         * 方便理解的版本
-         * @param root
-         */
-        public void nonRecursiveInOrder_2(TreeNode<T> root){
-            Stack<TreeNode<T>> stack = new Stack<>();
-            if (root == null) {
-                return;
-            }
-            stack.push(root);
-            while (!stack.isEmpty()) {
-                TreeNode<T> curr = stack.pop();
-                visit(curr);
-                if (curr.right != null) {
-                    stack.push(curr.right);
-                }
-            }
-        }
-
-        /**
-         * 获取最左的节点
-         * @return
-         */
-        public TreeNode<T> getMostLeft(TreeNode<T> root) {
-            TreeNode<T> left = root;
-            while (left != null) {
-                left = left.left; // 获取最左的节点
-            }
-            return left;
-        }
         //递归后序
         public void postOrder(TreeNode<T> root){
             if(root!=null){
