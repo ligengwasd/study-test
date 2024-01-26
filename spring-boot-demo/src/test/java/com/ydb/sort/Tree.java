@@ -92,22 +92,55 @@ public class Tree {
                 inOrder(root.right);
             }
         }
-        //非递归中序遍历：对于任一结点P，将其入栈，然后沿其左子树一直往下搜索，直到搜索到没有左孩子的结点，此时该结点出现在栈顶，
-        //但是此时不能将其出栈并访问，因此其右孩子还为被访问。所以接下来按照相同的规则对其右子树进行相同的处理，当访问完其右孩子时，该结点又出现在栈顶，此时可以将其出栈并访问。
         public void nonRecursiveInOrder(TreeNode<T> root){
-            Stack<TreeNode<T>> stack=new Stack<TreeNode<T>>();
-            TreeNode<T> node=root;
-            while(node!=null||!stack.isEmpty()){
-                //左子树一直入栈
-                while(node!=null){//一直找到节点左子树是空的节点
-                    stack.push(node);
-                    node=node.left;
-                }
+            Stack<TreeNode<T>> stack=new Stack<>();
 
-                node=stack.pop();//左子树是空的就是访问这个节点
-                visit(node);
-                node=node.right;//在找该节点的右子树
+            TreeNode<T> curr=root; // 当前节点
+            while(curr!=null||!stack.isEmpty()){
+                while(curr!=null){
+                    // 只要当前节点不为空，就一直寻找最左边的那个节点
+                    stack.push(curr);
+                    curr=curr.left;
+                }
+                // 走到这里，说明当前节点为空 当前节点 = 上一个最左节点的左节点
+                // 因为是左中右的顺序，所以此时应该访问当前节点的父节点，即上一个最左节点
+                curr=stack.pop();
+                visit(curr);
+                // 访问完了父节点，当前节点指向父节点的右节点。
+                // 继续循环，查找右节点的最左节点。
+                curr=curr.right;
             }
+        }
+
+        /**
+         * 方便理解的版本
+         * @param root
+         */
+        public void nonRecursiveInOrder_2(TreeNode<T> root){
+            Stack<TreeNode<T>> stack = new Stack<>();
+            if (root == null) {
+                return;
+            }
+            stack.push(root);
+            while (!stack.isEmpty()) {
+                TreeNode<T> curr = stack.pop();
+                visit(curr);
+                if (curr.right != null) {
+                    stack.push(curr.right);
+                }
+            }
+        }
+
+        /**
+         * 获取最左的节点
+         * @return
+         */
+        public TreeNode<T> getMostLeft(TreeNode<T> root) {
+            TreeNode<T> left = root;
+            while (left != null) {
+                left = left.left; // 获取最左的节点
+            }
+            return left;
         }
         //递归后序
         public void postOrder(TreeNode<T> root){
@@ -123,14 +156,14 @@ public class Tree {
             TreeNode<T> preNode=null;//记录之前遍历的右结点
             Stack<TreeNode<T>> stack=new Stack<TreeNode<T>>();
             while(node!=null||!stack.isEmpty()){
-        		  /*左子树一直入栈*/
+                /*左子树一直入栈*/
                 while(node!=null){
                     stack.push(node);
                     node=node.left;
                 }
                 node=stack.peek();//获得栈顶节点但不出栈
 
-        		  /*如果右结点为空，或者右结点之前遍历过，打印根结点*/
+                /*如果右结点为空，或者右结点之前遍历过，打印根结点*/
                 if(node.right==null||node.right==preNode){
                     visit(node);
                     node=stack.pop();
@@ -152,7 +185,7 @@ public class Tree {
             TreeNode<T> node=root;
             queue.offer(node);//队列用offer添加元素
 
-        	  /*对每一个节点先出队列再让其左节点和右节点入队列*/
+                /*对每一个节点先出队列再让其左节点和右节点入队列*/
             while(!queue.isEmpty()){
                 node=queue.poll();//队列用poll出队列
                 if(node!=null){
