@@ -16,11 +16,11 @@ public class Q496_NextGreaterElementI {
                 continue;
             }
             // i比栈顶元素大，弹出栈顶元素
-            while (!stack.isEmpty() && nums1[i] > stack.peek()) {
+            while (!stack.isEmpty() && nums1[i] >= stack.peek()) {
                 Integer pop = stack.pop();
             }
             // i比栈顶元素小，栈顶就是比i大的第一个元素
-            nums1[i] = stack.peek();
+            nums1[i] = stack.isEmpty() ? -1 : stack.peek();
             stack.push(nums1[i]);
         }
         return nums2;
