@@ -3,6 +3,10 @@ package com.ydb.algorithm.essentials.dp;
 import java.util.Stack;
 
 public class LargestRectangleHistogram_2 {
+    /**
+     * 整体思路：单调递增栈，对于元素i，左边存储的是第一个比i小的元素，当新增的元素比i小时，新增元素就是第一个比i小的元素。
+     * 以第i个元素为顶的矩形面积 = 第i个元素的高度 * （右边第一个比i小的元素下标 - 左边第一个比i小的元素下标 - 1）
+     */
     public static void main(String[] args) {
         int[] heights = new int[] {2,1,5,6,2,3};
         // 在原数据的头尾分别加上0
