@@ -1,23 +1,22 @@
 package com.ydb.algorithm.essentials.greed;
 
+import javax.validation.constraints.Max;
+
 public class Q55_JumpGame {
     public static void main(String[] args) {
         System.out.println(canJump(new int[]{2,3,1,1,4}));
     }
     public static boolean canJump(int[] nums) {
-        int reach=0;// 表示从第i步出发能到达的最远距离
-        for (int i=0; i<nums.length-1; i++) {
-            if (reach < i) {//前面能到的最远距离小于i，说明走不到第i步。返回false。
+        int reach=1;
+        // i从1开始，i表示第i-1个节点
+        for (int i = 1; i <= nums.length; i++) {
+            // 最大能到的距离小于i（i是从0开始的距离），说明无法走到节点i
+            if (i > reach) {
                 return false;
             }
-            if (reach < nums[i] + i) {
-                reach = nums[i] + i;// 更新从第i步出发能到达的最远距离。
-            }
-            if (reach >= nums.length-1) {
-                return true;
-            }
+            reach = Math.max(reach, i + nums[i-1]);
         }
-        return false;
+        return reach >= nums.length;
 
     }
 }
