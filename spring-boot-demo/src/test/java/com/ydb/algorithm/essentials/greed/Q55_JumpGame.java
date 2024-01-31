@@ -32,7 +32,7 @@ public class Q55_JumpGame {
 
         int[] dp = new int[nums.length];
         for (int i = 1; i < nums.length; i++) {
-            // dp[i]标识到达节点i时的剩余步数，两种情况：
+            // dp[i]标识到达节点i时的最大剩余步数，两种情况：
             // 1、是从i-1节点跳到i节点，剩余步数等于 nums[i-1] - 1
             // 2、不是从i-1节点跳到i节点，剩余步数等于 dp[i-1] - 1
             dp[i] = Math.max(dp[i-1], nums[i-1]) - 1;
