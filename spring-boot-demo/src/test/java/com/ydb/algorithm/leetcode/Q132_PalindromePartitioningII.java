@@ -15,9 +15,10 @@ public class Q132_PalindromePartitioningII {
             for (int j = 0; j <= i; j++) {
                 if (charArray[i] == charArray[j] && (j -i < 2) || dp[i+1][j-1]) {
                     dp[i][j] = true;
+                    res[i] = (j == 0) ? 0 : Math.min(res[i], res[j - 1] + 1);
                 }
             }
         }
-        return -1;
+        return res[n-1];
     }
 }
