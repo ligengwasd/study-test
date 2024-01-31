@@ -7,7 +7,9 @@ public class Q132_PalindromePartitioningII {
     public int minCut(String s) {
         char[] charArray = s.toCharArray();
         int n = charArray.length;
+        // i-j范围内是否是回文串
         boolean[][] dp = new boolean[n][n];
+        // 表示子串 [0, i] 范围内的最小分割数
         int[] res = new int[n];
         for (int i = 0; i < n; i++) {
             // 对于前i个字符，最差的情况，每个字母分割一次（单个字母也是回文），需要i次分割
