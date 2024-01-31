@@ -9,10 +9,9 @@ public class Q55_JumpGame {
     public static boolean canJump(int[] nums) {
         // 从第0个元素出发，能到达的最远距离
         int reach = 1;
-        // 到达第0个元素，能到达的最远距离需要大于等于1
-        // 到达第i个元素，能到达的最远距离需要大于等于i+1
         for (int i = 0; i < nums.length; i++) {
-            // reach表示能到达的最远距离，如果reach刚好等于i，那么走到第i个元素的时候，剩余步数是0，无法前进。
+            // 到达第0个元素，能到达的最远距离需要大于等于1
+            // 到达第i个元素，能到达的最远距离需要大于等于i+1
             if (reach < i + 1) {
                 return false;
             }
