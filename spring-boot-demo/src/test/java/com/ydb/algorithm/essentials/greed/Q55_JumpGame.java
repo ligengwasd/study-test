@@ -4,7 +4,7 @@ import javax.validation.constraints.Max;
 
 public class Q55_JumpGame {
     public static void main(String[] args) {
-        System.out.println(canJump(new int[]{2,3,1,1,4}));
+        System.out.println(canJump(new int[]{3,2,1,0}));
     }
     public static boolean canJump(int[] nums) {
         // 从第0个元素出发，能到达的最远距离
