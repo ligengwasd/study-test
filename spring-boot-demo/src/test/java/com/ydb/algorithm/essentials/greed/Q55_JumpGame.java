@@ -12,6 +12,7 @@ public class Q55_JumpGame {
         for (int i = 0; i < nums.length; i++) {
             // 到达第0个元素，能到达的最远距离需要大于等于1
             // 到达第i个元素，能到达的最远距离需要大于等于i+1
+            // 可以想象前面有一个dummy节点，所有计算都是以dummy节点为开始节点做的计算
             if (reach < i + 1) {
                 return false;
             }
