@@ -1,5 +1,8 @@
 package com.ydb.algorithm.leetcode;
 
+/**
+ * https://www.cnblogs.com/grandyang/p/4271456.html
+ */
 public class Q132_PalindromePartitioningII {
     public int minCut(String s) {
         char[] charArray = s.toCharArray();
