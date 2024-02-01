@@ -9,9 +9,23 @@ import java.util.Arrays;
  */
 public class LongestIncreasingSubsequence {
     public static void main(String[] args) {
-        System.out.println(lengthOfLIS(new int[]{10,9,2,5,3,7,101,18}));
+        System.out.println(lengthOfLIS_2(new int[]{10,9,2,5,3,7,101,18}));
     }
-
+    public static int lengthOfLIS_2(int[] nums) {
+        if (nums == null || nums.length == 0) return 0; // f[i]表示以i结尾的最长递增子序列的长度
+        int[] f = new int[nums.length];
+        Arrays.fill(f, 1);
+        int global = 1;
+        for (int j = 1; j < nums.length; ++j) {
+            for (int i = 0; i < j; ++i) {
+                if (nums[i] < nums[j]) {
+                    f[j] = Math.max(f[j], f[i] + 1);
+                }
+            }
+            global = Math.max(global, f[j]);
+        }
+        return global;
+    }
     public static int lengthOfLIS(int[] nums) {
         int len = nums.length;
         if (len < 2) {
