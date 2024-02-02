@@ -12,32 +12,22 @@ import java.util.*;
 public class CombinationSum {
     public static void main(String[] args) {
         CombinationSum solution = new CombinationSum();
-        List<List<Integer>> lists = solution.combinationSum(new int[]{10,1,2,7,6,1,5}, 8);
-
-        System.out.println(new Gson().toJson(lists));
+//        solution.dfs(new int[]{10,1,2,7,6,1,5}, 8, new LinkedList<>());
+//        solution.dfs(new int[]{2,3,6,7}, 7, new LinkedList<>(), 0);
     }
 
-    public List<List<Integer>> combinationSum(int[] nums, int target) {
-        Arrays.sort(nums);
-        List<List<Integer>> result = new ArrayList<>(); // 最终结果
-        List<Integer> path = new ArrayList<>(); // 中间结果
-        dfs(nums, path, result, target, 0);
-        return result;
-    }
-
-    private static void dfs(int[] nums, List<Integer> path,
-                            List<List<Integer>> result, int gap, int start) {
-        if (gap == 0) {  // 找到一个合法解
-            result.add(new ArrayList<Integer>(path));
+    public void dfs(int[] choose, int target, LinkedList<Integer> path, int start) {
+        if (target < 0) {
             return;
         }
-        for (int i = start; i < nums.length; i++) { // 扩展状态
-            if (gap < nums[i]) return; // 剪枝
-
-            path.add(nums[i]); // 执行扩展动作
-            dfs(nums, path, result, gap - nums[i], i);
-            path.remove(path.size() - 1);  // 撤销动作
-            // 自己的理解，每次添加元素和都只调用一次DFS，所以只需要撤销一次。
+        if (target == 0) {
+            System.out.println(new Gson().toJson(path));
+            return;
+        }
+        for (int i = start; i < choose.length; i++) {
+            path.add(choose[i]);
+            dfs(choose, target-choose[i], path, i);
+            path.removeLast();
         }
     }
 }
