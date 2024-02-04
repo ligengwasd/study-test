@@ -7,18 +7,21 @@ import java.util.Stack;
  */
 public class MaximalRectangle {
     public int maximalRectangle(char[][] matrix) {
-        int level = matrix.length;
-        int[] heights = new int[matrix[0].length];
-        int maxArea = 0;
-        for (int i = 0; i < level; i++) {
-            for (int j = 0; j < heights.length; j++) {
+        int m = matrix.length;
+        int n = matrix[0].length;
+        // 记录每个元素上方的柱形高度，并且已初始化为0
+        int[][] heightsDp = new int[m][n];
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
                 if (matrix[i][j] == 1) {
-                    heights[j] = heights[j] + 1;
-                } else {
-                    heights[j] = 0;
+                    int preHeight = i == 0 ? 0 : heightsDp[i-1][j];
+                    heightsDp[i][j] = preHeight + 1;
                 }
             }
-            maxArea = Math.max(maxArea, max(heights));
+        }
+        int maxArea = 0;
+        for (int k = 0; k < heightsDp.length; k++) {
+            maxArea = Math.max(maxArea, max(heightsDp[k]));
         }
         return maxArea;
     }
