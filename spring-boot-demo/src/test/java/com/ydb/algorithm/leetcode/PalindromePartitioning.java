@@ -16,14 +16,16 @@ public class PalindromePartitioning {
      * @param start start前面的都是回文
      * @param end 是否在end的地方断开
      */
-    public void dfs(LinkedList<String> path, String s, int start, int end) {
-        if (!isPalindrome(s, start, end)) {
-            return;
+    public void dfs(LinkedList<String> path, String s, int start) {
+        for (int i = start; i < s.length(); i++) {
+            if (isPalindrome(s, start, i)) {
+                path.add(s.substring(start, i));
+                dfs(path, s, i+1);
+                path.removeLast();
+            }
         }
-        path.add(s.substring(start, end));
-        dfs(path, s, end, end + 1);
-        path.removeLast();
     }
+
 
     private boolean isPalindrome(String s, int left, int right) {
         while (right - left > 1) {
