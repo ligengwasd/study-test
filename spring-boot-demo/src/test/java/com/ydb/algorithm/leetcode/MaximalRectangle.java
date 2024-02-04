@@ -6,10 +6,18 @@ public class MaximalRectangle {
     public int maximalRectangle(char[][] matrix) {
         int level = matrix.length;
         int[] heights = new int[matrix[0].length];
+        int maxArea = 0;
         for (int i = 0; i < level; i++) {
-
+            for (int j = 0; j < heights.length; j++) {
+                if (matrix[i][j] == 1) {
+                    heights[j] = heights[j] + 1;
+                } else {
+                    heights[j] = 0;
+                }
+            }
+            maxArea = Math.max(maxArea, max(heights));
         }
-        return -1;
+        return maxArea;
     }
 
     /**
