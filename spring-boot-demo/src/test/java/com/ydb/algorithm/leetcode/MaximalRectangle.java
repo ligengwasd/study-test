@@ -2,6 +2,9 @@ package com.ydb.algorithm.leetcode;
 
 import java.util.Stack;
 
+/**
+ * 算法不正确
+ */
 public class MaximalRectangle {
     public int maximalRectangle(char[][] matrix) {
         int level = matrix.length;
